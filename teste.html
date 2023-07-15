@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pizzaria</title>
+  <style>
+    /* Estilos CSS para a página */
+  </style>
+  <script>
+    // Lista de produtos
+    var products = {
+      alho: {
+        name: "Pizza de Alho",
+        price: 33.90,
+        image: "calabresa.jpg"
+      },
+      bacon: {
+        name: "Pizza de Bacon",
+        price: 39.90,
+        image: "bacon.jpg"
+      }
+      // Adicione outros produtos aqui, se necessário
+    };
+    
+    // Lista de produtos no carrinho
+    var listCards = {};
+    
+    // Inicializa o aplicativo
+    function initApp() {
+      var addToCardButtons = document.querySelectorAll('.add-to-card');
+      addToCardButtons.forEach(function(button) {
+        var key = button.dataset.key;
+        button.addEventListener('click', function() {
+          addToCard(key);
+        });
+      });
+      reloadCard();
+    }
+    
+    // Adiciona um produto ao carrinho
+    function addToCard(key) {
+      if (listCards[key] == null) {
+        // Copia o produto da lista para o carrinho
+        listCards[key] = JSON.parse(JSON.stringify(products[key]));
+        listCards[key].quantity = 1;
+      }
+      reloadCard();
+    }
+    
+    // Atualiza o carrinho
+    function reloadCard() {
+      var listCard = document.querySelector('.listCard');
+      var total = document.querySelector('.total');
+      var quantity = document.querySelector('.quantity');
+      
+      listCard.innerHTML = '';
+      var count = 0;
+      var totalPrice = 0;
+      
+      Object.keys(listCards).forEach(function(key) {
+        var value = listCards[key];
+        totalPrice += value.price;
+        count += value.quantity;
+        
+        if (value != null) {
+          var newDiv = document.createElement('li');
+          newDiv.innerHTML = `
+            <div><img src="image/${value.image}"/></div>
+            <div>${value.name}</div>
+            <div>${value.price.toLocaleString()}</div>
+            <div>
+              <button onclick="changeQuantity('${key}', ${value.quantity - 1})">-</button>
+              <div class="count">${value.quantity}</div>
+              <button onclick="changeQuantity('${key}', ${value.quantity + 1})">+</button>
+            </div>`;
+          listCard.appendChild(newDiv);
+        }
+      });
+      
+      total.innerText = totalPrice.toLocaleString();
+      quantity.innerText = count;
+    }
+    
+    // Altera a quantidade de um produto no carrinho
+    function changeQuantity(key, quantity) {
+      if (quantity == 0) {
+        delete listCards[key];
+      } else {
+        listCards[key].quantity = quantity;
+        listCards[key].price = quantity * products[key].price;
+      }
+      reloadCard();
+    }
+  </script>
+</head>
+<body onload="initApp()">
+  <div class="shopping">
+    <p class="menu-opener">🛒</p>
+    <span class="quantity">0</span>
+  </div>
+
+  <div class="card_carrinho_compras">
+    <h1>Carrinho</h1>
+    <ul class="listCard"></ul>
+    <div class="checkOut">
+      <div class="total">0</div>
+      <div class="closeShopping">Fechar</div>
+    </div>
+  </div>
+
+  <div class="modal" id="alho">
+    <div class="modal-content">
+        <div class="left-column">
+          
+          <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <h2>Pizza de Alho</h2>
+          <p>Alho frito, mussarela e tomate.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <br><br>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="adicionais" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="adicionais" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="adicionais" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="adicionais" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="adicionais" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="adicionais" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+      
+          <br>
+       </div>
+       <div class="botoes">
+          <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+          <button class="cancelar" onclick="closeModal('alho')">Voltar</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="bacon">
+    <!-- Conteúdo do modal da pizza de Bacon -->
+  </div>
+
+  <div class="card">
+    <img src="image/calabresa.jpg" alt="Pizza">
+    <h3 class="pizza-title">Pizza de Alho</h3>
+    <p class="pizza-description">Alho frito, mussarela e tomate.</p>
+    <p class="pizza-price">A partir de R$ 33,90</p>
+    <button data-key="alho" class="add-to-card">Fazer pedido</button>
+  </div>
+  
+  <!-- Adicione outros cards de produtos aqui, se necessário -->
+</body>
+</html>
