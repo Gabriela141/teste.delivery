@@ -92,32 +92,7 @@ closeShopping.addEventListener('click', ()=>{
 
 
 
-function addToCart(pizzaId) {
-  var modal = document.getElementById(pizzaId);
-  var tamanhoSelecionado = modal.querySelector('input[name="tamanho"]:checked');
-  var adicionaisSelecionados = modal.querySelectorAll('input[name="adicionais"]:checked');
-  var total = 0;
-  
-  if (tamanhoSelecionado) {
-    total += parseFloat(tamanhoSelecionado.value);
-  }
-  
-  adicionaisSelecionados.forEach(function(adicional) {
-    total += parseFloat(adicional.value);
-  });
-  
-  var carrinho = document.querySelector('.listCard');
-  var carrinhoItem = document.createElement('li');
-  carrinhoItem.innerHTML = modal.querySelector('h2').innerHTML + ' - R$ ' + total.toFixed(2);
-  carrinho.appendChild(carrinhoItem);
-  
-  var quantidade = document.querySelector('.quantity');
-  quantidade.innerHTML = parseInt(quantidade.innerHTML) + 1;
-  
-  var totalCarrinho = document.querySelector('.total');
-  totalCarrinho.innerHTML = (parseFloat(totalCarrinho.innerHTML) + total).toFixed(2);
 
-}
 
 
 
