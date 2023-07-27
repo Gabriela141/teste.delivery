@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>teste delivery</title>
+    <title>Pão Da Hora</title>
 
     
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -21,16 +21,21 @@
          <div class="shopping">
           <p class="menu-openner">🛒</p>
           <span class="quantity">0</span>
-         </div>
-         <div class="card_carrinho_compras">
-          <h1>Card</h1>
-          <ul class="listCard">
-          </ul>
+        </div>
+        
+        <div class="card_carrinho_compras">
+          <p id="selectedDetails"></p>
+          <h1>Carrinho</h1>
+          <ul class="listCard" id="card-items"></ul>
+           <div class="observacoes">
+    <label for="observacoes">Observações:</label>
+    <input type="text" id="observacoes" name="observacoes" placeholder="Digite suas observações...">
+  </div>
           <div class="checkOut">
-              <div class="total">0</div>
-              <div class="closeShopping">Close</div>
+            <div class="total" id="card-total">0</div>
+            <div class="closeShopping">Close</div>
           </div>
-         </div>
+        </div>
       
       </div>
 
@@ -75,13 +80,997 @@
       </div>
  
       <div class="menu">
-        <a href="#eusei"> Pizzas Promocionais </a>
-        <a href="#"> Pizzas Tradicionais</a>
-        <a href="#"> Pizzas Especiais </a>
+        <a href="#pizzaspromocionais"> Pizzas Promocionais </a>
+        <a href="#pizzastradicionais"> Pizzas Tradicionais</a>
+        <a href="#pizzasespeciais"> Pizzas Especiais </a>
         <a href="#"> Pizzas Doces</a>
         <a href="#"> Hambúrguer Artesanal</a>
         <a href="#"> Hambúrguer</a>
       </div>
+
+
+
+
+
+      <div class="card-container">
+        <div class="card">
+          <img src="img/calabresa.jpg" alt="Pizza">
+          <h3 class="pizza-title">Pizza Dois Sabores Grande</h3>
+          <p class="pizza-description">...</p>
+          <p class="pizza-price">A partir de R$ 37,90</p>
+          <button onclick="openModal('pizza_dois_sabores_modal_grande')" class="fazer-pedido">Fazer pedido</button>
+        </div>
+    
+
+      
+        <div class="card">
+          <img src="img/calabresa.jpg" alt="Pizza">
+          <h3 class="pizza-title">Pizza Dois Sabores Média</h3>
+          <p class="pizza-description">...</p>
+          <p class="pizza-price">A partir de R$ 33,90</p>
+          <button onclick="openModal('pizza_dois_sabores_modal_media')" class="fazer-pedido">Fazer pedido</button>
+        </div>
+      </div>
+
+      <div class="modal" id="pizza_dois_sabores_modal_grande">
+        <!-- Conteúdo do modal grande -->
+        <h1 style="background-color: aliceblue;">Selecione os dois sabores para sua pizza:</h1>
+        <h3 style="font-size: 30px; width: 100%; background-color: #e2e2e2;">Pizzas Promocionais</h3>
+        <div class="modal_dois_sabores_card">
+          <!-- Conteúdo do modal -->
+          <div class="sabores-options">
+            <h2 style="font-size: 20px;">Alho</h2>
+            <p>Alho Frito, mussarela e tomate.</p>
+            <span>+ 18,95</span><br>
+            <input type="checkbox" class="sabor-checkbox" data-sabor="Alho" value="18.95" style="cursor: pointer; float: right;">
+  
+          </div>
+  
+          <div class="sabores-options">
+            <h2 style="font-size: 20px;">Bacon</h2>
+            <p>Bacon, cebola e mussarela.</p>
+            <span>+ 18,95</span><br>
+            <input type="checkbox" class="sabor-checkbox" data-sabor="Bacon" value="18.95" style="cursor: pointer; float: right;">
+        </div>
+        <div class="sabores-options">
+          <h2 style="font-size: 20px;">Calabresa</h2>
+          <p>Calabresa, cebola e mussarela.</p>
+          <span>+ 18,95</span><br>
+          <input type="checkbox" class="sabor-checkbox" data-sabor="Calabresa" value="18.95"  style="cursor: pointer; float: right;">
+
+        </div>
+
+        <div class="sabores-options">
+          <h2 style="font-size: 20px;">Catubresa</h2>
+          <p>Calabresa e Catupiry.</p>
+          <span>+ 18,95</span><br>
+          <input type="checkbox" class="sabor-checkbox" data-sabor="Catubresa" value="18.95"  style="cursor: pointer; float: right;">
+      </div>
+      <div class="sabores-options">
+        <h2 style="font-size: 20px;">Alho</h2>
+        <p>Alho Frito, mussarela e tomate.</p>
+        <span>+ 18,95</span><br>
+        <input type="checkbox" class="sabor-checkbox" data-sabor="Alho" value="18.95" style="cursor: pointer; float: right;">
+
+      </div>
+
+      <div class="sabores-options">
+        <h2 style="font-size: 20px;">Bacon</h2>
+        <p>Bacon, cebola e mussarela.</p>
+        <span>+ 18,95</span><br>
+        <input type="checkbox" class="sabor-checkbox" data-sabor="Bacon" value="18.95" style="cursor: pointer; float: right;">
+    </div>
+    <div class="sabores-options">
+      <h2 style="font-size: 20px;">Calabresa</h2>
+      <p>Calabresa, cebola e mussarela.</p>
+      <span>+ 18,95</span><br>
+      <input type="checkbox" class="sabor-checkbox" data-sabor="Calabresa" value="18.95"  style="cursor: pointer; float: right;">
+
+    </div>
+
+    <div class="sabores-options">
+      <h2 style="font-size: 20px;">Catubresa</h2>
+      <p>Calabresa e Catupiry.</p>
+      <span>+ 18,95</span><br>
+      <input type="checkbox" class="sabor-checkbox" data-sabor="Catubresa" value="18.95"  style="cursor: pointer; float: right;">
+    </div>
+         <div class="sabores-options">
+            <h2 style="font-size: 20px;">Catufrango</h2>
+            <p>Frango e Catupiry.</p>
+            <span>+ 18,95</span><br>
+            <input type="checkbox" class="sabor-checkbox" data-sabor="Catufrango" value="18.95" style="cursor: pointer; float: right;">
+  
+          </div>
+  
+          <div class="sabores-options">
+            <h2 style="font-size: 20px;">2 Queijos</h2>
+            <p>Mussarela e Catupiry.</p>
+            <span>+ 18,95</span><br>
+            <input type="checkbox" class="sabor-checkbox" data-sabor="2Queijos" value="18.95" style="cursor: pointer; float: right;">
+        </div>
+        <div class="sabores-options">
+          <h2 style="font-size: 20px;">Frango</h2>
+          <p>Frango desfiado e Mussarela.</p>
+          <span>+ 18,95</span><br>
+          <input type="checkbox" class="sabor-checkbox" data-sabor="Frango" value="18.95"  style="cursor: pointer; float: right;">
+
+        </div>
+
+        <div class="sabores-options">
+          <h2 style="font-size: 20px;">Lombo</h2>
+          <p>Lombo Canadense e mussarela./p>
+          <span>+ 18,95</span><br>
+          <input type="checkbox" class="sabor-checkbox" data-sabor="Lombo" value="18.95"  style="cursor: pointer; float: right;">
+      </div>
+
+      <div class="sabores-options">
+        <h2 style="font-size: 20px;">Marguerita</h2>
+        <p>Mussarela, parmesão e manjericão.</p>
+        <span>+ 18,95</span><br>
+        <input type="checkbox" class="sabor-checkbox" data-sabor="Marguerita" value="18.95" style="cursor: pointer; float: right;">
+
+      </div>
+
+      <div class="sabores-options">
+        <h2 style="font-size: 20px;">Milho</h2>
+        <p>Milho e mussarela.</p>
+        <span>+ 18,95</span><br>
+        <input type="checkbox" class="sabor-checkbox" data-sabor="Milho" value="18.95" style="cursor: pointer; float: right;">
+    </div>
+    <div class="sabores-options">
+      <h2 style="font-size: 20px;">Mussarela</h2>
+      <p>Mussarela e Tomate.</p>
+      <span>+ 18,95</span><br>
+      <input type="checkbox" class="sabor-checkbox" data-sabor="Mussarela" value="18.95"  style="cursor: pointer; float: right;">
+
+    </div>
+
+    <div class="sabores-options">
+      <h2 style="font-size: 20px;">Napolitana</h2>
+      <p>Presunto e mussarela.</p>
+      <span>+ 18,95</span><br>
+      <input type="checkbox" class="sabor-checkbox" data-sabor="Napolitana" value="18.95"  style="cursor: pointer; float: right;">
+  </div>
+  <div class="sabores-options">
+    <h2 style="font-size: 20px;">Portuguesa</h2>
+    <p>Presunto, milho, ervilha, ovo, mussarela, cebola, pimentão e tomate.</p>
+    <span>+ 18,95</span><br>
+    <input type="checkbox" class="sabor-checkbox" data-sabor="Portuguesa" value="18.95"  style="cursor: pointer; float: right;">
+</div>
+</div>
+       
+
+<div class="pizzas_tradi_dois_sabores_grandes">
+<h3>Pizzas Tradicionais</h3>
+</div>
+
+<div class="modal_dois_sabores_card">
+
+
+     <div class="sabores-options">
+            <h2 style="font-size: 20px;">Americana</h2>
+            <p>Alho Frito, mussarela e tomate.</p>
+            <span>+ 18,95</span><br>
+            <input type="checkbox" class="sabor-checkbox" data-sabor="Alho" value="18.95" style="cursor: pointer; float: right;">
+  
+          </div>
+  
+          <div class="sabores-options">
+            <h2 style="font-size: 20px;">Bacon</h2>
+            <p>Bacon, cebola e mussarela.</p>
+            <span>+ 18,95</span><br>
+            <input type="checkbox" class="sabor-checkbox" data-sabor="Bacon" value="18.95" style="cursor: pointer; float: right;">
+        </div>
+        <div class="sabores-options">
+          <h2 style="font-size: 20px;">Calabresa</h2>
+          <p>Calabresa, cebola e mussarela.</p>
+          <span>+ 18,95</span><br>
+          <input type="checkbox" class="sabor-checkbox" data-sabor="Calabresa" value="18.95"  style="cursor: pointer; float: right;">
+
+        </div>
+
+        <div class="sabores-options">
+          <h2 style="font-size: 20px;">Catubresa</h2>
+          <p>Calabresa e Catupiry.</p>
+          <span>+ 18,95</span><br>
+          <input type="checkbox" class="sabor-checkbox" data-sabor="Catubresa" value="18.95"  style="cursor: pointer; float: right;">
+      </div>
+      <div class="sabores-options">
+        <h2 style="font-size: 20px;">Alho</h2>
+        <p>Alho Frito, mussarela e tomate.</p>
+        <span>+ 18,95</span><br>
+        <input type="checkbox" class="sabor-checkbox" data-sabor="Alho" value="18.95" style="cursor: pointer; float: right;">
+
+      </div>
+
+      <div class="sabores-options">
+        <h2 style="font-size: 20px;">Bacon</h2>
+        <p>Bacon, cebola e mussarela.</p>
+        <span>+ 18,95</span><br>
+        <input type="checkbox" class="sabor-checkbox" data-sabor="Bacon" value="18.95" style="cursor: pointer; float: right;">
+    </div>
+    <div class="sabores-options">
+      <h2 style="font-size: 20px;">Calabresa</h2>
+      <p>Calabresa, cebola e mussarela.</p>
+      <span>+ 18,95</span><br>
+      <input type="checkbox" class="sabor-checkbox" data-sabor="Calabresa" value="18.95"  style="cursor: pointer; float: right;">
+
+    </div>
+
+    <div class="sabores-options">
+      <h2 style="font-size: 20px;">Catubresa</h2>
+      <p>Calabresa e Catupiry.</p>
+      <span>+ 18,95</span><br>
+      <input type="checkbox" class="sabor-checkbox" data-sabor="Catubresa" value="18.95"  style="cursor: pointer; float: right;">
+    </div>
+         <div class="sabores-options">
+            <h2 style="font-size: 20px;">Catufrango</h2>
+            <p>Frango e Catupiry.</p>
+            <span>+ 18,95</span><br>
+            <input type="checkbox" class="sabor-checkbox" data-sabor="Catufrango" value="18.95" style="cursor: pointer; float: right;">
+  
+          </div>
+  
+          <div class="sabores-options">
+            <h2 style="font-size: 20px;">2 Queijos</h2>
+            <p>Mussarela e Catupiry.</p>
+            <span>+ 18,95</span><br>
+            <input type="checkbox" class="sabor-checkbox" data-sabor="2Queijos" value="18.95" style="cursor: pointer; float: right;">
+        </div>
+        <div class="sabores-options">
+          <h2 style="font-size: 20px;">Frango</h2>
+          <p>Frango desfiado e Mussarela.</p>
+          <span>+ 18,95</span><br>
+          <input type="checkbox" class="sabor-checkbox" data-sabor="Frango" value="18.95"  style="cursor: pointer; float: right;">
+
+        </div>
+
+        <div class="sabores-options">
+          <h2 style="font-size: 20px;">Lombo</h2>
+          <p>Lombo Canadense e mussarela./p>
+          <span>+ 18,95</span><br>
+          <input type="checkbox" class="sabor-checkbox" data-sabor="Lombo" value="18.95"  style="cursor: pointer; float: right;">
+      </div>
+
+      <div class="sabores-options">
+        <h2 style="font-size: 20px;">Marguerita</h2>
+        <p>Mussarela, parmesão e manjericão.</p>
+        <span>+ 18,95</span><br>
+        <input type="checkbox" class="sabor-checkbox" data-sabor="Marguerita" value="18.95" style="cursor: pointer; float: right;">
+
+      </div>
+
+      <div class="sabores-options">
+        <h2 style="font-size: 20px;">Milho</h2>
+        <p>Milho e mussarela.</p>
+        <span>+ 18,95</span><br>
+        <input type="checkbox" class="sabor-checkbox" data-sabor="Milho" value="18.95" style="cursor: pointer; float: right;">
+    </div>
+    <div class="sabores-options">
+      <h2 style="font-size: 20px;">Mussarela</h2>
+      <p>Mussarela e Tomate.</p>
+      <span>+ 18,95</span><br>
+      <input type="checkbox" class="sabor-checkbox" data-sabor="Mussarela" value="18.95"  style="cursor: pointer; float: right;">
+
+    </div>
+
+    <div class="sabores-options">
+      <h2 style="font-size: 20px;">Napolitana</h2>
+      <p>Presunto e mussarela.</p>
+      <span>+ 18,95</span><br>
+      <input type="checkbox" class="sabor-checkbox" data-sabor="Napolitana" value="18.95"  style="cursor: pointer; float: right;">
+  </div>
+  <div class="sabores-options">
+    <h2 style="font-size: 20px;">Portuguesa</h2>
+    <p>Presunto, milho, ervilha, ovo, mussarela, cebola, pimentão e tomate.</p>
+    <span>+ 18,95</span><br>
+    <input type="checkbox" class="sabor-checkbox" data-sabor="Portuguesa" value="18.95"  style="cursor: pointer; float: right;">
+</div>
+</div>
+
+
+<div class="pizzas_tradi_dois_sabores_grandes">
+  <h3>Pizzas Especiais</h3>
+  </div>
+  
+  <div class="modal_dois_sabores_card">
+    <div class="sabores-options">
+      <h2 style="font-size: 20px;">Mussarela</h2>
+      <p>Mussarela e Tomate.</p>
+      <span>+ 18,95</span><br>
+      <input type="checkbox" class="sabor-checkbox" data-sabor="Mussarela" value="18.95"  style="cursor: pointer; float: right;">
+
+    </div>
+
+    <div class="sabores-options">
+      <h2 style="font-size: 20px;">Napolitana</h2>
+      <p>Presunto e mussarela.</p>
+      <span>+ 18,95</span><br>
+      <input type="checkbox" class="sabor-checkbox" data-sabor="Napolitana" value="18.95"  style="cursor: pointer; float: right;">
+  </div>
+  <div class="sabores-options">
+    <h2 style="font-size: 20px;">Portuguesa</h2>
+    <p>Presunto, milho, ervilha, ovo, mussarela, cebola, pimentão e tomate.</p>
+    <span>+ 18,95</span><br>
+    <input type="checkbox" class="sabor-checkbox" data-sabor="Portuguesa" value="18.95"  style="cursor: pointer; float: right;">
+</div>
+    </div>
+
+
+
+    <div class="pizzas_tradi_dois_sabores_grandes">
+      <h3>Pizzas Doces</h3>
+      </div>
+      
+      <div class="modal_dois_sabores_card">
+
+
+     <div class="sabores-options">
+            <h2 style="font-size: 20px;">Americana</h2>
+            <p>Alho Frito, mussarela e tomate.</p>
+            <span>+ 18,95</span><br>
+            <input type="checkbox" class="sabor-checkbox" data-sabor="Alho" value="18.95" style="cursor: pointer; float: right;">
+  
+          </div>
+  
+          <div class="sabores-options">
+            <h2 style="font-size: 20px;">Bacon</h2>
+            <p>Bacon, cebola e mussarela.</p>
+            <span>+ 18,95</span><br>
+            <input type="checkbox" class="sabor-checkbox" data-sabor="Bacon" value="18.95" style="cursor: pointer; float: right;">
+        </div>
+        <div class="sabores-options">
+          <h2 style="font-size: 20px;">Calabresa</h2>
+          <p>Calabresa, cebola e mussarela.</p>
+          <span>+ 18,95</span><br>
+          <input type="checkbox" class="sabor-checkbox" data-sabor="Calabresa" value="18.95"  style="cursor: pointer; float: right;">
+
+        </div>
+
+        <div class="sabores-options">
+          <h2 style="font-size: 20px;">Catubresa</h2>
+          <p>Calabresa e Catupiry.</p>
+          <span>+ 18,95</span><br>
+          <input type="checkbox" class="sabor-checkbox" data-sabor="Catubresa" value="18.95"  style="cursor: pointer; float: right;">
+      </div>
+      <div class="sabores-options">
+        <h2 style="font-size: 20px;">Alho</h2>
+        <p>Alho Frito, mussarela e tomate.</p>
+        <span>+ 18,95</span><br>
+        <input type="checkbox" class="sabor-checkbox" data-sabor="Alho" value="18.95" style="cursor: pointer; float: right;">
+
+      </div>
+
+      <div class="sabores-options">
+        <h2 style="font-size: 20px;">Bacon</h2>
+        <p>Bacon, cebola e mussarela.</p>
+        <span>+ 18,95</span><br>
+        <input type="checkbox" class="sabor-checkbox" data-sabor="Bacon" value="18.95" style="cursor: pointer; float: right;">
+    </div>
+    <div class="sabores-options">
+      <h2 style="font-size: 20px;">Calabresa</h2>
+      <p>Calabresa, cebola e mussarela.</p>
+      <span>+ 18,95</span><br>
+      <input type="checkbox" class="sabor-checkbox" data-sabor="Calabresa" value="18.95"  style="cursor: pointer; float: right;">
+
+    </div>
+
+    <div class="sabores-options">
+      <h2 style="font-size: 20px;">Catubresa</h2>
+      <p>Calabresa e Catupiry.</p>
+      <span>+ 18,95</span><br>
+      <input type="checkbox" class="sabor-checkbox" data-sabor="Catubresa" value="18.95"  style="cursor: pointer; float: right;">
+    </div>
+         <div class="sabores-options">
+            <h2 style="font-size: 20px;">Catufrango</h2>
+            <p>Frango e Catupiry.</p>
+            <span>+ 18,95</span><br>
+            <input type="checkbox" class="sabor-checkbox" data-sabor="Catufrango" value="18.95" style="cursor: pointer; float: right;">
+  
+          </div>
+  
+          <div class="sabores-options">
+            <h2 style="font-size: 20px;">2 Queijos</h2>
+            <p>Mussarela e Catupiry.</p>
+            <span>+ 18,95</span><br>
+            <input type="checkbox" class="sabor-checkbox" data-sabor="2Queijos" value="18.95" style="cursor: pointer; float: right;">
+        </div>
+        <div class="sabores-options">
+          <h2 style="font-size: 20px;">Frango</h2>
+          <p>Frango desfiado e Mussarela.</p>
+          <span>+ 18,95</span><br>
+          <input type="checkbox" class="sabor-checkbox" data-sabor="Frango" value="18.95"  style="cursor: pointer; float: right;">
+
+        </div>
+
+        <div class="sabores-options">
+          <h2 style="font-size: 20px;">Lombo</h2>
+          <p>Lombo Canadense e mussarela./p>
+          <span>+ 18,95</span><br>
+          <input type="checkbox" class="sabor-checkbox" data-sabor="Lombo" value="18.95"  style="cursor: pointer; float: right;">
+      </div>
+
+      <div class="sabores-options">
+        <h2 style="font-size: 20px;">Marguerita</h2>
+        <p>Mussarela, parmesão e manjericão.</p>
+        <span>+ 18,95</span><br>
+        <input type="checkbox" class="sabor-checkbox" data-sabor="Marguerita" value="18.95" style="cursor: pointer; float: right;">
+
+      </div>
+
+      <div class="sabores-options">
+        <h2 style="font-size: 20px;">Milho</h2>
+        <p>Milho e mussarela.</p>
+        <span>+ 18,95</span><br>
+        <input type="checkbox" class="sabor-checkbox" data-sabor="Milho" value="18.95" style="cursor: pointer; float: right;">
+    </div>
+    <div class="sabores-options">
+      <h2 style="font-size: 20px;">Mussarela</h2>
+      <p>Mussarela e Tomate.</p>
+      <span>+ 18,95</span><br>
+      <input type="checkbox" class="sabor-checkbox" data-sabor="Mussarela" value="18.95"  style="cursor: pointer; float: right;">
+
+    </div>
+
+    <div class="sabores-options">
+      <h2 style="font-size: 20px;">Napolitana</h2>
+      <p>Presunto e mussarela.</p>
+      <span>+ 18,95</span><br>
+      <input type="checkbox" class="sabor-checkbox" data-sabor="Napolitana" value="18.95"  style="cursor: pointer; float: right;">
+  </div>
+  <div class="sabores-options">
+    <h2 style="font-size: 20px;">Portuguesa</h2>
+    <p>Presunto, milho, ervilha, ovo, mussarela, cebola, pimentão e tomate.</p>
+    <span>+ 18,95</span><br>
+    <input type="checkbox" class="sabor-checkbox" data-sabor="Portuguesa" value="18.95"  style="cursor: pointer; float: right;">
+</div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <div class="adicionais_pizza_dois_sabores">
+            <h4>Adicionais:</h4>
+            <p>
+              <input type="checkbox" name="adicionais" value="10.00">
+              <label for="queijo">Mussarela</label>
+              <span class="price">+ R$ 10,00</span>
+            </p>
+            <p>
+              <input type="checkbox" name="adicionais" value="10.00">
+              <label for="tomate">Bacon</label>
+              <span class="price">+ R$ 10,00</span>
+            </p>
+            <p>
+              <input type="checkbox" name="adicionais" value="10.00">
+              <label for="cebola">Calabresa</label>
+              <span class="price">+ R$ 10.00</span>
+            </p>
+            <p>
+              <input type="checkbox" name="adicionais" value="10.00">
+              <label for="azeitona">Frango</label>
+              <span class="price">+ R$ 10.00</span>
+            </p>
+            <p>
+              <input type="checkbox" name="adicionais" value="3.0">
+              <label for="azeitona">Milho</label>
+              <span class="price">+ R$ 3,00</span>
+            </p>
+            <p>
+              <input type="checkbox" name="adicionais" value="3.0">
+              <label for="azeitona">Ervilha</label>
+              <span class="price">+ R$ 3,00</span>
+            </p>
+            <p>
+              <input type="checkbox" name="adicionais" value="3.0">
+              <label for="azeitona">Cebola</label>
+              <span class="price">+ R$ 3,00</span>
+            </p>
+            <p>
+              <input type="checkbox" name="adicionais" value="3.0">
+              <label for="azeitona">Tomate</label>
+              <span class="price">+ R$ 3,00</span>
+            </p>
+            <p>
+              <input type="checkbox" name="adicionais" value="3.0">
+              <label for="azeitona">Azeitona</label>
+              <span class="price">+ R$ 3,00</span>
+            </p>
+            <br><br>
+           </div>
+           <div class="bordas_pizza_dois_sabores">
+           <h4>Bordas:</h4>
+           
+           <p>
+             <input type="checkbox" name="bordas" value="5.0">
+             <label for="queijo">Catupiry</label>
+             <span class="price">+ R$ 5,00</span>
+           </p>
+           <p>
+             <input type="checkbox" name="bordas" value="5.0">
+             <label for="tomate">Cheddar</label>
+             <span class="price">+ R$ 5,00</span>
+           </p>
+           <p>
+             <input type="checkbox" name="bordas" value="8.00">
+             <label for="cebola">Chocolate</label>
+             <span class="price">+ R$ 8,00</span>
+           </p>
+           <p>
+             <input type="checkbox" name="bordas" value="10.00">
+             <label for="azeitona">Calabresa</label>
+             <span class="price">+ R$ 10,00</span>
+           </p>
+           <p>
+             <input type="checkbox" name="bordas" value="10.00">
+             <label for="azeitona">Frango</label>
+             <span class="price">+ R$ 10,00</span>
+           </p>
+           <p>
+             <input type="checkbox" name="bordas" value="10.00">
+             <label for="azeitona">Mussarela</label>
+             <span class="price">+ R$ 10,00</span>
+           </p>
+           </div>
+
+
+
+          
+
+
+          <button onclick="closeModal('pizza_dois_sabores_modal_grande')" class="fazer-pedido">Voltar</button>
+          <button onclick="adicionarSaboresAoCarrinho()" id="adicionar-ao-carrinho-button">Adicionar ao carrinho</button>
+        </div>
+       
+        </div>
+      
+          
+
+       
+
+
+
+
+
+
+
+
+        <div class="modal" id="pizza_dois_sabores_modal_media">
+          <!-- Conteúdo do modal médio -->
+          <h2 style="background-color: aliceblue;">Selecione os dois sabores para sua pizza:</h2>
+          <h3>Pizzas Promocionais</h3>
+          <div class="modal_dois_sabores_card">
+            <!-- Conteúdo do modal -->
+            <div class="modal_dois_sabores_card">
+
+
+              <div class="sabores-options">
+                     <h2 style="font-size: 20px;">Americana</h2>
+                     <p>Alho Frito, mussarela e tomate.</p>
+                     <span>+ 18,95</span><br>
+                     <input type="checkbox" class="sabor-checkbox-media" data-sabor="Alho" value="16.95" style="cursor: pointer; float: right;">
+           
+                   </div>
+           
+                   <div class="sabores-options">
+                     <h2 style="font-size: 20px;">Bacon</h2>
+                     <p>Bacon, cebola e mussarela.</p>
+                     <span>+ 18,95</span><br>
+                     <input type="checkbox" class="sabor-checkbox-media" data-sabor="Bacon" value="16.95" style="cursor: pointer; float: right;">
+                 </div>
+                 <div class="sabores-options">
+                   <h2 style="font-size: 20px;">Calabresa</h2>
+                   <p>Calabresa, cebola e mussarela.</p>
+                   <span>+ 18,95</span><br>
+                   <input type="checkbox" class="sabor-checkbox-media" data-sabor="Calabresa" value="16.95"  style="cursor: pointer; float: right;">
+         
+                 </div>
+         
+                 <div class="sabores-options">
+                   <h2 style="font-size: 20px;">Catubresa</h2>
+                   <p>Calabresa e Catupiry.</p>
+                   <span>+ 18,95</span><br>
+                   <input type="checkbox" class="sabor-checkbox-media" data-sabor="Catubresa" value="16.95"  style="cursor: pointer; float: right;">
+               </div>
+               <div class="sabores-options">
+                 <h2 style="font-size: 20px;">Alho</h2>
+                 <p>Alho Frito, mussarela e tomate.</p>
+                 <span>+ 18,95</span><br>
+                 <input type="checkbox" class="sabor-checkbox-media" data-sabor="Alho" value="16.95" style="cursor: pointer; float: right;">
+         
+               </div>
+         
+               <div class="sabores-options">
+                 <h2 style="font-size: 20px;">Bacon</h2>
+                 <p>Bacon, cebola e mussarela.</p>
+                 <span>+ 18,95</span><br>
+                 <input type="checkbox" class="sabor-checkbox-media" data-sabor="Bacon" value="16.95" style="cursor: pointer; float: right;">
+             </div>
+             <div class="sabores-options">
+               <h2 style="font-size: 20px;">Calabresa</h2>
+               <p>Calabresa, cebola e mussarela.</p>
+               <span>+ 18,95</span><br>
+               <input type="checkbox" class="sabor-checkbox-media" data-sabor="Calabresa" value="16.95"  style="cursor: pointer; float: right;">
+         
+             </div>
+         
+             <div class="sabores-options">
+               <h2 style="font-size: 20px;">Catubresa</h2>
+               <p>Calabresa e Catupiry.</p>
+               <span>+ 18,95</span><br>
+               <input type="checkbox" class="sabor-checkbox-media" data-sabor="Catubresa" value="16.95"  style="cursor: pointer; float: right;">
+             </div>
+                  <div class="sabores-options">
+                     <h2 style="font-size: 20px;">Catufrango</h2>
+                     <p>Frango e Catupiry.</p>
+                     <span>+ 18,95</span><br>
+                     <input type="checkbox" class="sabor-checkbox-media" data-sabor="Catufrango" value="16.95" style="cursor: pointer; float: right;">
+           
+                   </div>
+           
+                   <div class="sabores-options">
+                     <h2 style="font-size: 20px;">2 Queijos</h2>
+                     <p>Mussarela e Catupiry.</p>
+                     <span>+ 18,95</span><br>
+                     <input type="checkbox" class="sabor-checkbox-media" data-sabor="2Queijos" value="16.95" style="cursor: pointer; float: right;">
+                 </div>
+                 <div class="sabores-options">
+                   <h2 style="font-size: 20px;">Frango</h2>
+                   <p>Frango desfiado e Mussarela.</p>
+                   <span>+ 18,95</span><br>
+                   <input type="checkbox" class="sabor-checkbox-media" data-sabor="Frango" value="16.95"  style="cursor: pointer; float: right;">
+         
+                 </div>
+         
+                 <div class="sabores-options">
+                   <h2 style="font-size: 20px;">Lombo</h2>
+                   <p>Lombo Canadense e mussarela./p>
+                   <span>+ 18,95</span><br>
+                   <input type="checkbox" class="sabor-checkbox-media" data-sabor="Lombo" value="16.95"  style="cursor: pointer; float: right;">
+               </div>
+         
+               <div class="sabores-options">
+                 <h2 style="font-size: 20px;">Marguerita</h2>
+                 <p>Mussarela, parmesão e manjericão.</p>
+                 <span>+ 18,95</span><br>
+                 <input type="checkbox" class="sabor-checkbox-media" data-sabor="Marguerita" value="16.95" style="cursor: pointer; float: right;">
+         
+               </div>
+         
+               <div class="sabores-options">
+                 <h2 style="font-size: 20px;">Milho</h2>
+                 <p>Milho e mussarela.</p>
+                 <span>+ 18,95</span><br>
+                 <input type="checkbox" class="sabor-checkbox-media" data-sabor="Milho" value="16.95" style="cursor: pointer; float: right;">
+             </div>
+             <div class="sabores-options">
+               <h2 style="font-size: 20px;">Mussarela</h2>
+               <p>Mussarela e Tomate.</p>
+               <span>+ 18,95</span><br>
+               <input type="checkbox" class="sabor-checkbox-media" data-sabor="Mussarela" value="16.95"  style="cursor: pointer; float: right;">
+         
+             </div>
+         
+             <div class="sabores-options">
+               <h2 style="font-size: 20px;">Napolitana</h2>
+               <p>Presunto e mussarela.</p>
+               <span>+ 18,95</span><br>
+               <input type="checkbox" class="sabor-checkbox-media" data-sabor="Napolitana" value="16.95"  style="cursor: pointer; float: right;">
+           </div>
+           <div class="sabores-options">
+             <h2 style="font-size: 20px;">Portuguesa</h2>
+             <p>Presunto, milho, ervilha, ovo, mussarela, cebola, pimentão e tomate.</p>
+             <span>+ 18,95</span><br>
+             <input type="checkbox" class="sabor-checkbox-media" data-sabor="Portuguesa" value="16.95"  style="cursor: pointer; float: right;">
+         </div>
+               </div>
+         
+         
+               <div class="pizzas_tradi_dois_sabores_grandes">
+                <h3>Pizzas Tradicionasi</h3>
+                </div>
+                
+                <div class="modal_dois_sabores_card">
+    <div class="sabores-options">
+                     <h2 style="font-size: 20px;">Americana</h2>
+                     <p>Alho Frito, mussarela e tomate.</p>
+                     <span>+ 18,95</span><br>
+                     <input type="checkbox" class="sabor-checkbox-media" data-sabor="Alho" value="16.95" style="cursor: pointer; float: right;">
+           
+                   </div>
+           
+                   <div class="sabores-options">
+                     <h2 style="font-size: 20px;">Bacon</h2>
+                     <p>Bacon, cebola e mussarela.</p>
+                     <span>+ 18,95</span><br>
+                     <input type="checkbox" class="sabor-checkbox-media" data-sabor="Bacon" value="16.95" style="cursor: pointer; float: right;">
+                 </div>
+                 <div class="sabores-options">
+                   <h2 style="font-size: 20px;">Calabresa</h2>
+                   <p>Calabresa, cebola e mussarela.</p>
+                   <span>+ 18,95</span><br>
+                   <input type="checkbox" class="sabor-checkbox-media" data-sabor="Calabresa" value="16.95"  style="cursor: pointer; float: right;">
+         
+                 </div>
+         
+                 <div class="sabores-options">
+                   <h2 style="font-size: 20px;">Catubresa</h2>
+                   <p>Calabresa e Catupiry.</p>
+                   <span>+ 18,95</span><br>
+                   <input type="checkbox" class="sabor-checkbox-media" data-sabor="Catubresa" value="16.95"  style="cursor: pointer; float: right;">
+               </div>
+               <div class="sabores-options">
+                 <h2 style="font-size: 20px;">Alho</h2>
+                 <p>Alho Frito, mussarela e tomate.</p>
+                 <span>+ 18,95</span><br>
+                 <input type="checkbox" class="sabor-checkbox-media" data-sabor="Alho" value="16.95" style="cursor: pointer; float: right;">
+         
+               </div>
+         
+               <div class="sabores-options">
+                 <h2 style="font-size: 20px;">Bacon</h2>
+                 <p>Bacon, cebola e mussarela.</p>
+                 <span>+ 18,95</span><br>
+                 <input type="checkbox" class="sabor-checkbox-media" data-sabor="Bacon" value="16.95" style="cursor: pointer; float: right;">
+             </div>
+             <div class="sabores-options">
+               <h2 style="font-size: 20px;">Calabresa</h2>
+               <p>Calabresa, cebola e mussarela.</p>
+               <span>+ 18,95</span><br>
+               <input type="checkbox" class="sabor-checkbox-media" data-sabor="Calabresa" value="16.95"  style="cursor: pointer; float: right;">
+         
+             </div>
+         
+             <div class="sabores-options">
+               <h2 style="font-size: 20px;">Catubresa</h2>
+               <p>Calabresa e Catupiry.</p>
+               <span>+ 18,95</span><br>
+               <input type="checkbox" class="sabor-checkbox-media" data-sabor="Catubresa" value="16.95"  style="cursor: pointer; float: right;">
+             </div>
+                  <div class="sabores-options">
+                     <h2 style="font-size: 20px;">Catufrango</h2>
+                     <p>Frango e Catupiry.</p>
+                     <span>+ 18,95</span><br>
+                     <input type="checkbox" class="sabor-checkbox-media" data-sabor="Catufrango" value="16.95" style="cursor: pointer; float: right;">
+           
+                   </div>
+           
+                   <div class="sabores-options">
+                     <h2 style="font-size: 20px;">2 Queijos</h2>
+                     <p>Mussarela e Catupiry.</p>
+                     <span>+ 18,95</span><br>
+                     <input type="checkbox" class="sabor-checkbox-media" data-sabor="2Queijos" value="16.95" style="cursor: pointer; float: right;">
+                 </div>
+                 <div class="sabores-options">
+                   <h2 style="font-size: 20px;">Frango</h2>
+                   <p>Frango desfiado e Mussarela.</p>
+                   <span>+ 18,95</span><br>
+                   <input type="checkbox" class="sabor-checkbox-media" data-sabor="Frango" value="16.95"  style="cursor: pointer; float: right;">
+         
+                 </div>
+         
+                 <div class="sabores-options">
+                   <h2 style="font-size: 20px;">Lombo</h2>
+                   <p>Lombo Canadense e mussarela./p>
+                   <span>+ 18,95</span><br>
+                   <input type="checkbox" class="sabor-checkbox-media" data-sabor="Lombo" value="16.95"  style="cursor: pointer; float: right;">
+               </div>
+         
+               <div class="sabores-options">
+                 <h2 style="font-size: 20px;">Marguerita</h2>
+                 <p>Mussarela, parmesão e manjericão.</p>
+                 <span>+ 18,95</span><br>
+                 <input type="checkbox" class="sabor-checkbox-media" data-sabor="Marguerita" value="16.95" style="cursor: pointer; float: right;">
+         
+               </div>
+         
+               <div class="sabores-options">
+                 <h2 style="font-size: 20px;">Milho</h2>
+                 <p>Milho e mussarela.</p>
+                 <span>+ 18,95</span><br>
+                 <input type="checkbox" class="sabor-checkbox-media" data-sabor="Milho" value="16.95" style="cursor: pointer; float: right;">
+             </div>
+             <div class="sabores-options">
+               <h2 style="font-size: 20px;">Mussarela</h2>
+               <p>Mussarela e Tomate.</p>
+               <span>+ 18,95</span><br>
+               <input type="checkbox" class="sabor-checkbox-media" data-sabor="Mussarela" value="16.95"  style="cursor: pointer; float: right;">
+         
+             </div>
+         
+             <div class="sabores-options">
+               <h2 style="font-size: 20px;">Napolitana</h2>
+               <p>Presunto e mussarela.</p>
+               <span>+ 18,95</span><br>
+               <input type="checkbox" class="sabor-checkbox-media" data-sabor="Napolitana" value="16.95"  style="cursor: pointer; float: right;">
+           </div>
+           <div class="sabores-options">
+             <h2 style="font-size: 20px;">Portuguesa</h2>
+             <p>Presunto, milho, ervilha, ovo, mussarela, cebola, pimentão e tomate.</p>
+             <span>+ 18,95</span><br>
+             <input type="checkbox" class="sabor-checkbox-media" data-sabor="Portuguesa" value="16.95"  style="cursor: pointer; float: right;">
+         </div>
+                </div>
+                <div class="pizzas_tradi_dois_sabores_grandes">
+                  <h3>Pizzas Especiais</h3>
+                  </div>
+                  
+                  <div class="modal_dois_sabores_card">
+                    <div class="sabores-options">
+                      <h2 style="font-size: 20px;">Mussarela</h2>
+                      <p>Mussarela e Tomate.</p>
+                      <span>+ 18,95</span><br>
+                      <input type="checkbox" class="sabor-checkbox-media" data-sabor="Mussarela" value="16.95"  style="cursor: pointer; float: right;">
+                
+                    </div>
+                
+                    <div class="sabores-options">
+                      <h2 style="font-size: 20px;">Napolitana</h2>
+                      <p>Presunto e mussarela.</p>
+                      <span>+ 18,95</span><br>
+                      <input type="checkbox" class="sabor-checkbox-media" data-sabor="Napolitana" value="16.95"  style="cursor: pointer; float: right;">
+                  </div>
+                  <div class="sabores-options">
+                    <h2 style="font-size: 20px;">Portuguesa</h2>
+                    <p>Presunto, milho, ervilha, ovo, mussarela, cebola, pimentão e tomate.</p>
+                    <span>+ 18,95</span><br>
+                    <input type="checkbox" class="sabor-checkbox-media" data-sabor="Portuguesa" value="16.95"  style="cursor: pointer; float: right;">
+                </div>
+                  </div>
+                  <div class="pizzas_tradi_dois_sabores_grandes">
+                    <h3>Pizzas Doces</h3>
+                    </div>
+                    
+                    <div class="modal_dois_sabores_card">
+                      <div class="sabores-options">
+                        <h2 style="font-size: 20px;">Alho</h2>
+                        <p>Alho Frito, mussarela e tomate.</p>
+                        <span>+ 18,95</span><br>
+                        <input type="checkbox" class="sabor-checkbox-media" data-sabor="Alho" value="16.95" style="cursor: pointer; float: right;">
+                
+                      </div>
+                
+                      <div class="sabores-options">
+                        <h2 style="font-size: 20px;">Bacon</h2>
+                        <p>Bacon, cebola e mussarela.</p>
+                        <span>+ 18,95</span><br>
+                        <input type="checkbox" class="sabor-checkbox-media" data-sabor="Bacon" value="16.95" style="cursor: pointer; float: right;">
+                    </div>
+                    <div class="sabores-options">
+                      <h2 style="font-size: 20px;">Calabresa</h2>
+                      <p>Calabresa, cebola e mussarela.</p>
+                      <span>+ 18,95</span><br>
+                      <input type="checkbox" class="sabor-checkbox-media" data-sabor="Calabresa" value="16.95"  style="cursor: pointer; float: right;">
+                
+                    </div>
+                
+                    <div class="sabores-options">
+                      <h2 style="font-size: 20px;">Catubresa</h2>
+                      <p>Calabresa e Catupiry.</p>
+                      <span>+ 18,95</span><br>
+                      <input type="checkbox" class="sabor-checkbox-media" data-sabor="Catubresa" value="16.95"  style="cursor: pointer; float: right;">
+                    </div>
+                         <div class="sabores-options">
+                            <h2 style="font-size: 20px;">Catufrango</h2>
+                            <p>Frango e Catupiry.</p>
+                            <span>+ 18,95</span><br>
+                            <input type="checkbox" class="sabor-checkbox-media" data-sabor="Catufrango" value="16.95" style="cursor: pointer; float: right;">
+                  
+                          </div>
+                  
+                          <div class="sabores-options">
+                            <h2 style="font-size: 20px;">2 Queijos</h2>
+                            <p>Mussarela e Catupiry.</p>
+                            <span>+ 18,95</span><br>
+                            <input type="checkbox" class="sabor-checkbox-media" data-sabor="2Queijos" value="16.95" style="cursor: pointer; float: right;">
+                        </div>
+                        <div class="sabores-options">
+                          <h2 style="font-size: 20px;">Frango</h2>
+                          <p>Frango desfiado e Mussarela.</p>
+                          <span>+ 18,95</span><br>
+                          <input type="checkbox" class="sabor-checkbox-media" data-sabor="Frango" value="16.95"  style="cursor: pointer; float: right;">
+                
+                        </div>
+                
+                        <div class="sabores-options">
+                          <h2 style="font-size: 20px;">Lombo</h2>
+                          <p>Lombo Canadense e mussarela./p>
+                          <span>+ 18,95</span><br>
+                          <input type="checkbox" class="sabor-checkbox-media" data-sabor="Lombo" value="16.95"  style="cursor: pointer; float: right;">
+                      </div>
+                
+                      <div class="sabores-options">
+                        <h2 style="font-size: 20px;">Marguerita</h2>
+                        <p>Mussarela, parmesão e manjericão.</p>
+                        <span>+ 18,95</span><br>
+                        <input type="checkbox" class="sabor-checkbox-media" data-sabor="Marguerita" value="16.95" style="cursor: pointer; float: right;">
+                
+                      </div>
+                
+                      <div class="sabores-options">
+                        <h2 style="font-size: 20px;">Milho</h2>
+                        <p>Milho e mussarela.</p>
+                        <span>+ 18,95</span><br>
+                        <input type="checkbox" class="sabor-checkbox-media" data-sabor="Milho" value="16.95" style="cursor: pointer; float: right;">
+                    </div>
+                    <div class="sabores-options">
+                      <h2 style="font-size: 20px;">Mussarela</h2>
+                      <p>Mussarela e Tomate.</p>
+                      <span>+ 18,95</span><br>
+                      <input type="checkbox" class="sabor-checkbox-media" data-sabor="Mussarela" value="16.95"  style="cursor: pointer; float: right;">
+                
+                    </div>
+                
+                    <div class="sabores-options">
+                      <h2 style="font-size: 20px;">Napolitana</h2>
+                      <p>Presunto e mussarela.</p>
+                      <span>+ 18,95</span><br>
+                      <input type="checkbox" class="sabor-checkbox-media" data-sabor="Napolitana" value="16.95"  style="cursor: pointer; float: right;">
+                  </div>
+                  <div class="sabores-options">
+                    <h2 style="font-size: 20px;">Portuguesa</h2>
+                    <p>Presunto, milho, ervilha, ovo, mussarela, cebola, pimentão e tomate.</p>
+                    <span>+ 18,95</span><br>
+                    <input type="checkbox" class="sabor-checkbox-media" data-sabor="Portuguesa" value="16.95"  style="cursor: pointer; float: right;">
+                </div>
+                    </div>
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+            <button onclick="closeModal('pizza_dois_sabores_modal_media')" class="fazer-pedido">Voltar</button>
+            <button onclick="adicionarSaboresAoCarrinhoMedia()" id="adicionar-ao-carrinho-button-media">Adicionar ao carrinho</button>
+          </div>
+        </div>
+
+
+     
 
 
       <!--<button onclick="openModal('myModal')">Abrir Modal 1</button>
@@ -179,32 +1168,32 @@
            <h4>Bordas:</h4>
            
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="queijo">Catupiry</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="tomate">Cheddar</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="8.00">
+             <input type="checkbox" name="bordas" value="8.00">
              <label for="cebola">Chocolate</label>
              <span class="price">+ R$ 8,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Calabresa</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Frango</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
@@ -212,7 +1201,7 @@
             <br>
          </div>
          <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            <button class="add_to_cart" onclick=" addToCart('alho')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
             <button class="cancelar" onclick="closeModal('alho')">Voltar</button>
           </div>
           </div>
@@ -289,32 +1278,32 @@
            <h4>Bordas:</h4>
            
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="queijo">Catupiry</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="tomate">Cheddar</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="8.00">
+             <input type="checkbox" name="bordas" value="8.00">
              <label for="cebola">Chocolate</label>
              <span class="price">+ R$ 8,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Calabresa</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Frango</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
@@ -322,7 +1311,7 @@
             <br>
          </div>
          <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            <button class="add_to_cart" onclick=" addToCart('bacon')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
             <button class="cancelar" onclick="closeModal('bacon')">Voltar</button>
           </div>
           </div>
@@ -398,32 +1387,32 @@
            <h4>Bordas:</h4>
            
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="queijo">Catupiry</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="tomate">Cheddar</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="8.00">
+             <input type="checkbox" name="bordas" value="8.00">
              <label for="cebola">Chocolate</label>
              <span class="price">+ R$ 8,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Calabresa</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Frango</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
@@ -431,7 +1420,7 @@
             <br>
          </div>
          <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            <button class="add_to_cart" onclick=" addToCart('calabresa')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
             <button class="cancelar" onclick="closeModal('calabresa')">Voltar</button>
           </div>
           </div>
@@ -508,32 +1497,32 @@
            <h4>Bordas:</h4>
            
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="queijo">Catupiry</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="tomate">Cheddar</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="8.00">
+             <input type="checkbox" name="bordas" value="8.00">
              <label for="cebola">Chocolate</label>
              <span class="price">+ R$ 8,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Calabresa</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Frango</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
@@ -541,7 +1530,7 @@
             <br>
          </div>
          <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            <button class="add_to_cart" onclick=" addToCart('catubresa')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
             <button class="cancelar" onclick="closeModal('catubresa')">Voltar</button>
           </div>
           </div>
@@ -618,32 +1607,32 @@
            <h4>Bordas:</h4>
            
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="queijo">Catupiry</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="tomate">Cheddar</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="8.00">
+             <input type="checkbox" name="bordas" value="8.00">
              <label for="cebola">Chocolate</label>
              <span class="price">+ R$ 8,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Calabresa</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Frango</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
@@ -651,7 +1640,7 @@
             <br>
          </div>
          <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            <button class="add_to_cart" onclick=" addToCart('catufrango')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
             <button class="cancelar" onclick="closeModal('catufrango')">Voltar</button>
           </div>
           </div>
@@ -732,32 +1721,32 @@
            <h4>Bordas:</h4>
            
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="queijo">Catupiry</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="tomate">Cheddar</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="8.00">
+             <input type="checkbox" name="bordas" value="8.00">
              <label for="cebola">Chocolate</label>
              <span class="price">+ R$ 8,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Calabresa</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Frango</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
@@ -765,7 +1754,7 @@
             <br>
          </div>
          <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            <button class="add_to_cart" onclick=" addToCart('2queijos')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
             <button class="cancelar" onclick="closeModal('2queijos')">Voltar</button>
           </div>
           </div>
@@ -848,32 +1837,32 @@
            <h4>Bordas:</h4>
            
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="queijo">Catupiry</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="tomate">Cheddar</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="8.00">
+             <input type="checkbox" name="bordas" value="8.00">
              <label for="cebola">Chocolate</label>
              <span class="price">+ R$ 8,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Calabresa</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Frango</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
@@ -881,7 +1870,7 @@
             <br>
          </div>
          <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            <button class="add_to_cart" onclick=" addToCart('frango')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
             <button class="cancelar" onclick="closeModal('frango')">Voltar</button>
           </div>
           </div>
@@ -902,7 +1891,7 @@
         <div class="modal-content">
           <div class="left-column">
             
-            <img src="img/calabresa.jpg" alt="" class="modal-image">
+            <img src="./img/lombo.jpg" alt="" class="modal-image">
             <h2>Pizza de Lombo</h2>
             <p>Lombo canadense e mussarela.</p><br>
             <h4>Tamanhos:</h4><br>
@@ -967,32 +1956,32 @@
            <h4>Bordas:</h4>
            
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="queijo">Catupiry</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="tomate">Cheddar</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="8.00">
+             <input type="checkbox" name="bordas" value="8.00">
              <label for="cebola">Chocolate</label>
              <span class="price">+ R$ 8,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Calabresa</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Frango</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
@@ -1000,7 +1989,7 @@
             <br>
          </div>
          <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            <button class="add_to_cart" onclick=" addToCart('lombo')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
             <button class="cancelar" onclick="closeModal('lombo')">Voltar</button>
           </div>
           </div>
@@ -1081,32 +2070,32 @@
            <h4>Bordas:</h4>
            
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="queijo">Catupiry</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="tomate">Cheddar</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="8.00">
+             <input type="checkbox" name="bordas" value="8.00">
              <label for="cebola">Chocolate</label>
              <span class="price">+ R$ 8,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Calabresa</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Frango</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
@@ -1114,7 +2103,7 @@
             <br>
          </div>
          <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            <button class="add_to_cart" onclick=" addToCart('marguerita')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
             <button class="cancelar" onclick="closeModal('marguerita')">Voltar</button>
           </div>
           </div>
@@ -1200,32 +2189,32 @@
            <h4>Bordas:</h4>
            
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="queijo">Catupiry</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="tomate">Cheddar</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="8.00">
+             <input type="checkbox" name="bordas" value="8.00">
              <label for="cebola">Chocolate</label>
              <span class="price">+ R$ 8,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Calabresa</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Frango</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
@@ -1233,7 +2222,7 @@
             <br>
          </div>
          <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            <button class="add_to_cart" onclick=" addToCart('milho')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
             <button class="cancelar" onclick="closeModal('milho')">Voltar</button>
           </div>
           </div>
@@ -1315,32 +2304,32 @@
            <h4>Bordas:</h4>
            
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="queijo">Catupiry</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="tomate">Cheddar</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="8.00">
+             <input type="checkbox" name="bordas" value="8.00">
              <label for="cebola">Chocolate</label>
              <span class="price">+ R$ 8,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Calabresa</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Frango</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
@@ -1348,7 +2337,7 @@
             <br>
          </div>
          <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            <button class="add_to_cart" onclick=" addToCart('mussarela')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
             <button class="cancelar" onclick="closeModal('mussarela')">Voltar</button>
           </div>
           </div>
@@ -1437,32 +2426,32 @@
            <h4>Bordas:</h4>
            
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="queijo">Catupiry</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="tomate">Cheddar</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="8.00">
+             <input type="checkbox" name="bordas" value="8.00">
              <label for="cebola">Chocolate</label>
              <span class="price">+ R$ 8,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Calabresa</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Frango</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
@@ -1470,7 +2459,7 @@
             <br>
          </div>
          <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            <button class="add_to_cart" onclick=" addToCart('napolitana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
             <button class="cancelar" onclick="closeModal('napolitana')">Voltar</button>
           </div>
           </div>
@@ -1548,32 +2537,32 @@
            <h4>Bordas:</h4>
            
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="queijo">Catupiry</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="5.0">
+             <input type="checkbox" name="bordas" value="5.0">
              <label for="tomate">Cheddar</label>
              <span class="price">+ R$ 5,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="8.00">
+             <input type="checkbox" name="bordas" value="8.00">
              <label for="cebola">Chocolate</label>
              <span class="price">+ R$ 8,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Calabresa</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Frango</label>
              <span class="price">+ R$ 10,00</span>
            </p>
            <p>
-             <input type="checkbox" name="adicionais" value="10.00">
+             <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
@@ -1581,7 +2570,7 @@
             <br>
          </div>
          <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            <button class="add_to_cart" onclick=" addToCart('portuguesa')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
             <button class="cancelar" onclick="closeModal('portuguesa')">Voltar</button>
           </div>
           </div>
@@ -1593,7 +2582,7 @@
 
 
 
-      <div class="div_div">
+      <div class="div_div" id="pizzaspromocionais">
         <h2>Pizzas Promocionais</h2>
        </div>
 
@@ -1658,7 +2647,7 @@
 
 
   <div class="card">
-    <img src="img/calabresa.jpg" alt="Pizza">
+    <img src="img/frango.jpg" alt="Pizza">
     <h3 class="pizza-title">Pizza de Frango</h3>
     <p class="pizza-description">Frango desfiado e mussarela.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
@@ -1667,7 +2656,7 @@
 
 
   <div class="card">
-    <img src="img/calabresa.jpg" alt="Pizza">
+    <img src="img/lombo.jpg" alt="Pizza">
     <h3 class="pizza-title">Pizza de Lombo</h3>
     <p class="pizza-description">Lombo canadense e mussarela.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
@@ -1711,8 +2700,8 @@
   </div>
 
 
-  <div class="card" id="eusei">
-    <img src="img/calabresa.jpg" alt="Pizza">
+  <div class="card">
+    <img src="img/portuguesa.jpg" alt="Pizza">
     <h3 class="pizza-title">Pizza de Portuguesa</h3>
     <p class="pizza-description">Presunto, milho, ervilha, ovo, mussarela, cebola, pimentão e tomate.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
@@ -1818,15 +2807,15 @@
       <div class="modal-content">
         <div class="left-column">
           
-          <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <img src="img/americana.jpg" alt="" class="modal-image">
           <h2>Pizza Americana</h2>
           <p>Presunto, bacon, palmito, cebola e mussarela.</p><br>
           <h4>Tamanhos:</h4><br>
           <div class="sizes">
             <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
             <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-            <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
           </div>
         </div>
         <div class="right-column">
@@ -1883,32 +2872,32 @@
          <h4>Bordas:</h4>
          
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="queijo">Catupiry</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="tomate">Cheddar</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="8.00">
+           <input type="checkbox" name="bordas" value="8.00">
            <label for="cebola">Chocolate</label>
            <span class="price">+ R$ 8,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Calabresa</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Frango</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
          </p>
@@ -1916,7 +2905,7 @@
           <br>
        </div>
        <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+          <button class="add_to_cart" onclick=" addToCart('americana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
           <button class="cancelar" onclick="closeModal('americana')">Voltar</button>
         </div>
         </div>
@@ -1926,19 +2915,19 @@
 
 
 
-    <div class="modal" id="pizzadahora">
+    <div class="modal" id="pizza-da-hora">
       <div class="modal-content">
         <div class="left-column">
           
-          <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <img src="img/da_hora.jpg" alt="" class="modal-image">
           <h2>Pizza Da Hora</h2>
           <p>Calabresa, bacon, ervilha, milho, palmito, mussarela, cebola e tomate.</p><br>
           <h4>Tamanhos:</h4><br>
           <div class="sizes">
             <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
-            <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-            <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
           </div>
         </div>
         <div class="right-column">
@@ -1995,32 +2984,32 @@
          <h4>Bordas:</h4>
          
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="queijo">Catupiry</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="tomate">Cheddar</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="8.00">
+           <input type="checkbox" name="bordas" value="8.00">
            <label for="cebola">Chocolate</label>
            <span class="price">+ R$ 8,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Calabresa</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Frango</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
          </p>
@@ -2028,8 +3017,8 @@
           <br>
        </div>
        <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('pizzadahora')">Voltar</button>
+          <button class="add_to_cart" onclick=" addToCart('pizza-da-hora')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+          <button class="cancelar" onclick="closeModal('pizza-da-hora')">Voltar</button>
         </div>
         </div>
       </div>
@@ -2040,15 +3029,15 @@
       <div class="modal-content">
         <div class="left-column">
           
-          <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <img src="img/baiana.jpg" alt="" class="modal-image">
           <h2>Pizza Baiana</h2>
           <p>Calabresa moída, ovo, bacon, frango, cebola e mussarela.</p><br>
           <h4>Tamanhos:</h4><br>
           <div class="sizes">
-            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
-            <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-            <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="40.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
           </div>
         </div>
         <div class="right-column">
@@ -2105,32 +3094,32 @@
          <h4>Bordas:</h4>
          
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="queijo">Catupiry</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="tomate">Cheddar</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="8.00">
+           <input type="checkbox" name="bordas" value="8.00">
            <label for="cebola">Chocolate</label>
            <span class="price">+ R$ 8,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Calabresa</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Frango</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
          </p>
@@ -2138,7 +3127,7 @@
           <br>
        </div>
        <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+          <button class="add_to_cart" onclick=" addToCart('baiana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
           <button class="cancelar" onclick="closeModal('baiana')">Voltar</button>
         </div>
         </div>
@@ -2155,10 +3144,10 @@
           <p>Presunto, bacon, cebola, pimentão, catupiry, tomate e ovo.</p><br>
           <h4>Tamanhos:</h4><br>
           <div class="sizes">
-            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
-            <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-            <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="40.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
           </div>
         </div>
         <div class="right-column">
@@ -2215,32 +3204,32 @@
          <h4>Bordas:</h4>
          
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="queijo">Catupiry</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="tomate">Cheddar</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="8.00">
+           <input type="checkbox" name="bordas" value="8.00">
            <label for="cebola">Chocolate</label>
            <span class="price">+ R$ 8,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Calabresa</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Frango</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
          </p>
@@ -2248,7 +3237,7 @@
           <br>
        </div>
        <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+          <button class="add_to_cart" onclick=" addToCart('brasilia')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
           <button class="cancelar" onclick="closeModal('brasilia')">Voltar</button>
         </div>
         </div>
@@ -2260,7 +3249,7 @@
 
 
 
-    <div class="modal" id="calabresaespecial">
+    <div class="modal" id="calabresa-especial">
       <div class="modal-content">
         <div class="left-column">
           
@@ -2269,10 +3258,10 @@
           <p>Calabresa, bacon, frango, mussarela e cebola.</p><br>
           <h4>Tamanhos:</h4><br>
           <div class="sizes">
-            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
-            <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-            <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="40.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
           </div>
         </div>
         <div class="right-column">
@@ -2329,32 +3318,32 @@
          <h4>Bordas:</h4>
          
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="queijo">Catupiry</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="tomate">Cheddar</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="8.00">
+           <input type="checkbox" name="bordas" value="8.00">
            <label for="cebola">Chocolate</label>
            <span class="price">+ R$ 8,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Calabresa</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Frango</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
          </p>
@@ -2362,8 +3351,8 @@
           <br>
        </div>
        <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('calabresaespecial')">Voltar</button>
+          <button class="add_to_cart" onclick=" addToCart('calabresa-especial')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+          <button class="cancelar" onclick="closeModal('calabresa-especial')">Voltar</button>
         </div>
         </div>
       </div>
@@ -2385,10 +3374,10 @@
           <p>Lombo, palmito, frango, bacon e mussarela..</p><br>
           <h4>Tamanhos:</h4><br>
           <div class="sizes">
-            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
-            <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-            <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="40.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
           </div>
         </div>
         <div class="right-column">
@@ -2445,32 +3434,32 @@
          <h4>Bordas:</h4>
          
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="queijo">Catupiry</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="tomate">Cheddar</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="8.00">
+           <input type="checkbox" name="bordas" value="8.00">
            <label for="cebola">Chocolate</label>
            <span class="price">+ R$ 8,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Calabresa</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Frango</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
          </p>
@@ -2478,7 +3467,7 @@
           <br>
        </div>
        <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+          <button class="add_to_cart" onclick=" addToCart('canadense')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
           <button class="cancelar" onclick="closeModal('canadense')">Voltar</button>
         </div>
         </div>
@@ -2504,10 +3493,10 @@
           <p>Mussarela, presunto, palmito, milho, calabresa e cebola.</p><br>
           <h4>Tamanhos:</h4><br>
           <div class="sizes">
-            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
-            <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-            <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="40.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
           </div>
         </div>
         <div class="right-column">
@@ -2564,32 +3553,32 @@
          <h4>Bordas:</h4>
          
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="queijo">Catupiry</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="tomate">Cheddar</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="8.00">
+           <input type="checkbox" name="bordas" value="8.00">
            <label for="cebola">Chocolate</label>
            <span class="price">+ R$ 8,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Calabresa</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Frango</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
          </p>
@@ -2597,7 +3586,7 @@
           <br>
        </div>
        <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+          <button class="add_to_cart" onclick=" addToCart('candanga')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
           <button class="cancelar" onclick="closeModal('candanga')">Voltar</button>
         </div>
         </div>
@@ -2613,15 +3602,15 @@
       <div class="modal-content">
         <div class="left-column">
           
-          <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <img src="img/palmito.jpg" alt="" class="modal-image">
           <h2>Pizza de Palmito.</h2>
           <p>Palmito, bacon e mussarela.</p><br>
           <h4>Tamanhos:</h4><br>
           <div class="sizes">
-            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
-            <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-            <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="40.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
           </div>
         </div>
         <div class="right-column">
@@ -2678,32 +3667,32 @@
          <h4>Bordas:</h4>
          
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="queijo">Catupiry</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="tomate">Cheddar</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="8.00">
+           <input type="checkbox" name="bordas" value="8.00">
            <label for="cebola">Chocolate</label>
            <span class="price">+ R$ 8,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Calabresa</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Frango</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
          </p>
@@ -2711,7 +3700,7 @@
           <br>
        </div>
        <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+          <button class="add_to_cart" onclick=" addToCart('palmito')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
           <button class="cancelar" onclick="closeModal('palmito')">Voltar</button>
         </div>
         </div>
@@ -2737,10 +3726,10 @@
           <p>Calabresa moída, presunto, bacon, pimenta, mussarela e tomate.</p><br>
           <h4>Tamanhos:</h4><br>
           <div class="sizes">
-            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
-            <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-            <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="40.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
           </div>
         </div>
         <div class="right-column">
@@ -2797,32 +3786,32 @@
          <h4>Bordas:</h4>
          
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="queijo">Catupiry</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="tomate">Cheddar</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="8.00">
+           <input type="checkbox" name="bordas" value="8.00">
            <label for="cebola">Chocolate</label>
            <span class="price">+ R$ 8,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Calabresa</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Frango</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
          </p>
@@ -2830,7 +3819,7 @@
           <br>
        </div>
        <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+          <button class="add_to_cart" onclick=" addToCart('toscana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
           <button class="cancelar" onclick="closeModal('toscana')">Voltar</button>
         </div>
         </div>
@@ -2843,19 +3832,19 @@
 
 
 
-    <div class="modal" id="frangoespecial">
+    <div class="modal" id="frango-especial">
       <div class="modal-content">
         <div class="left-column">
           
-          <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <img src="img/frango_especial.jpg" alt="" class="modal-image">
           <h2>Pizza Frango Especial</h2>
           <p>Mussarela, frango, milho, azeitona, cebola e creme de leite.</p><br>
           <h4>Tamanhos:</h4><br>
           <div class="sizes">
-            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
-            <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-            <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="40.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
           </div>
         </div>
         <div class="right-column">
@@ -2912,32 +3901,32 @@
          <h4>Bordas:</h4>
          
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="queijo">Catupiry</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="tomate">Cheddar</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="8.00">
+           <input type="checkbox" name="bordas" value="8.00">
            <label for="cebola">Chocolate</label>
            <span class="price">+ R$ 8,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Calabresa</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Frango</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
          </p>
@@ -2945,8 +3934,8 @@
           <br>
        </div>
        <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('frangoespecial')">Voltar</button>
+          <button class="add_to_cart" onclick=" addToCart('frango-especial')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+          <button class="cancelar" onclick="closeModal('frango-especial')">Voltar</button>
         </div>
         </div>
       </div>
@@ -2974,10 +3963,10 @@
           <p>Peito de peru, milho, ervilha, mussarela e pimentão.</p><br>
           <h4>Tamanhos:</h4><br>
           <div class="sizes">
-            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
-            <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-            <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="40.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
           </div>
         </div>
         <div class="right-column">
@@ -3034,32 +4023,32 @@
          <h4>Bordas:</h4>
          
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="queijo">Catupiry</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="tomate">Cheddar</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="8.00">
+           <input type="checkbox" name="bordas" value="8.00">
            <label for="cebola">Chocolate</label>
            <span class="price">+ R$ 8,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Calabresa</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Frango</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
          </p>
@@ -3067,7 +4056,7 @@
           <br>
        </div>
        <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+          <button class="add_to_cart" onclick=" addToCart('peruana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
           <button class="cancelar" onclick="closeModal('peruana')">Voltar</button>
         </div>
         </div>
@@ -3080,15 +4069,15 @@
       <div class="modal-content">
         <div class="left-column">
           
-          <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <img src="./img/frango_bacon.jpg" alt="" class="modal-image">
           <h2>Pizza Frango+Bacon</h2>
           <p>Frango, mussarela, bacon e cebola.</p><br>
           <h4>Tamanhos:</h4><br>
           <div class="sizes">
-            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
-            <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-            <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="40.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
           </div>
         </div>
         <div class="right-column">
@@ -3145,32 +4134,32 @@
          <h4>Bordas:</h4>
          
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="queijo">Catupiry</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="5.0">
+           <input type="checkbox" name="bordas" value="5.0">
            <label for="tomate">Cheddar</label>
            <span class="price">+ R$ 5,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="8.00">
+           <input type="checkbox" name="bordas" value="8.00">
            <label for="cebola">Chocolate</label>
            <span class="price">+ R$ 8,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Calabresa</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Frango</label>
            <span class="price">+ R$ 10,00</span>
          </p>
          <p>
-           <input type="checkbox" name="adicionais" value="10.00">
+           <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
          </p>
@@ -3178,7 +4167,7 @@
           <br>
        </div>
        <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+          <button class="add_to_cart" onclick=" addToCart('frango+bacon')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
           <button class="cancelar" onclick="closeModal('frango+bacon')">Voltar</button>
         </div>
         </div>
@@ -3195,7 +4184,7 @@
 
 
 
-<div class="div_div">
+<div class="div_div" id="pizzastradicionais">
   <h2>Pizzas Tradicionais</h2>
  </div>
  
@@ -3205,28 +4194,28 @@
 
 
         <div class="card">
-          <img src="img/calabresa.jpg" alt="Pizza">
+          <img src="img/americana.jpg" alt="Pizza">
           <h3 class="pizza-title">Pizza Americana</h3>
           <p class="pizza-description">Presunto, bacon, palmito, cebola e mussarela.</p>
-          <p class="pizza-price">A partir de R$ 33,90</p>
+          <p class="pizza-price">A partir de R$ 36,90</p>
           <button onclick="openModal('americana')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
         <div class="card">
-          <img src="img/calabresa.jpg" alt="Pizza">
+          <img src="./img/da_hora.jpg" alt="Pizza">
           <h3 class="pizza-title">Pizza Da Hora</h3>
           <p class="pizza-description">Calabresa, bacon, ervilha, milho, palmito, mussarela, cebola e tomate.</p>
-          <p class="pizza-price">A partir de R$ 33,90</p>
-          <button onclick="openModal('pizzadahora')" class="fazer-pedido">Fazer pedido</button>
+          <p class="pizza-price">A partir de R$ 36,90</p>
+          <button onclick="openModal('pizza-da-hora')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
         <div class="card">
-          <img src="img/calabresa.jpg" alt="Pizza">
+          <img src="./img/baiana.jpg" alt="Pizza">
           <h3 class="pizza-title">Pizza Baiana</h3>
           <p class="pizza-description">Calabresa moída, ovo, bacon, frango, cebola e mussarela.</p>
-          <p class="pizza-price">A partir de R$ 33,90</p>
+          <p class="pizza-price">A partir de R$ 36,90</p>
           <button onclick="openModal('baiana')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
@@ -3235,7 +4224,7 @@
           <img src="img/calabresa.jpg" alt="Pizza">
           <h3 class="pizza-title">Pizza Brasilia</h3>
           <p class="pizza-description">Presunto, bacon, cebola, pimentão, catupiry, tomate e ovo.</p>
-          <p class="pizza-price">A partir de R$ 33,90</p>
+          <p class="pizza-price">A partir de R$ 36,90</p>
           <button onclick="openModal('brasilia')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
@@ -3244,8 +4233,8 @@
           <img src="img/calabresa.jpg" alt="Pizza">
           <h3 class="pizza-title">Pizza Calabresa Especial</h3>
           <p class="pizza-description">Calabresa, bacon, frango, mussarela e cebola.</p>
-          <p class="pizza-price">A partir de R$ 33,90</p>
-          <button onclick="openModal('calabresaespecial')" class="fazer-pedido">Fazer pedido</button>
+          <p class="pizza-price">A partir de R$ 36,90</p>
+          <button onclick="openModal('calabresa-especial')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
@@ -3253,7 +4242,7 @@
           <img src="img/calabresa.jpg" alt="Pizza">
           <h3 class="pizza-title">Pizza Canadense.</h3>
           <p class="pizza-description">Lombo, palmito, frango, bacon e mussarela.</p>
-          <p class="pizza-price">A partir de R$ 33,90</p>
+          <p class="pizza-price">A partir de R$ 36,90</p>
           <button onclick="openModal('canadense')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
@@ -3262,16 +4251,16 @@
           <img src="img/calabresa.jpg" alt="Pizza">
           <h3 class="pizza-title">Pizza Candanga</h3>
           <p class="pizza-description">Mussarela, presunto, palmito, milho, calabresa e cebola.</p>
-          <p class="pizza-price">A partir de R$ 33,90</p>
+          <p class="pizza-price">A partir de R$ 36,90</p>
           <button onclick="openModal('candanga')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
         <div class="card">
-          <img src="img/calabresa.jpg" alt="Pizza">
+          <img src="img/palmito.jpg" alt="Pizza">
           <h3 class="pizza-title">Pizza de Palmito</h3>
           <p class="pizza-description">Palmito, bacon e mussarela.</p>
-          <p class="pizza-price">A partir de R$ 33,90</p>
+          <p class="pizza-price">A partir de R$ 36,90</p>
           <button onclick="openModal('palmito')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
@@ -3280,17 +4269,17 @@
           <img src="img/calabresa.jpg" alt="Pizza">
           <h3 class="pizza-title">Pizza Toscana</h3>
           <p class="pizza-description">Calabresa moída, presunto, bacon, pimenta, mussarela e tomate.</p>
-          <p class="pizza-price">A partir de R$ 33,90</p>
+          <p class="pizza-price">A partir de R$ 36,90</p>
           <button onclick="openModal('toscana')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
         <div class="card">
-          <img src="img/calabresa.jpg" alt="Pizza">
+          <img src="img/frango_especial.jpg" alt="Pizza">
           <h3 class="pizza-title">Pizza Frango Especial</h3>
           <p class="pizza-description">Mussarela, frango, milho, azeitona, cebola e creme de leite.</p>
-          <p class="pizza-price">A partir de R$ 33,90</p>
-          <button onclick="openModal('frangoespecial')" class="fazer-pedido">Fazer pedido</button>
+          <p class="pizza-price">A partir de R$ 36,90</p>
+          <button onclick="openModal('frango-especial')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
@@ -3298,16 +4287,16 @@
           <img src="img/calabresa.jpg" alt="Pizza">
           <h3 class="pizza-title">Pizza Peruana</h3>
           <p class="pizza-description">Peito de Peru, milho, ervilha, mussarela e pimentão.</p>
-          <p class="pizza-price">A partir de R$ 33,90</p>
+          <p class="pizza-price">A partir de R$ 36,90</p>
           <button onclick="openModal('peruana')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
         <div class="card">
-          <img src="img/calabresa.jpg" alt="Pizza">
+          <img src="img/frango_bacon.jpg" alt="Pizza">
           <h3 class="pizza-title">Pizza Frango+Bacon</h3>
           <p class="pizza-description">Frango, mussarela, bacon e cebola.</p>
-          <p class="pizza-price">A partir de R$ 33,90</p>
+          <p class="pizza-price">A partir de R$ 36,90</p>
           <button onclick="openModal('frango+bacon')" class="fazer-pedido">Fazer pedido</button>
         </div> 
         </div>
@@ -3363,19 +4352,19 @@
 
 
 
-<div class="modal" id="Carijó">
+<div class="modal" id="carijo">
   <div class="modal-content">
     <div class="left-column">
       
-      <img src="img/calabresa.jpg" alt="" class="modal-image">
-      <h2>Pizza Frango Especial</h2>
-      <p>Mussarela, frango, milho, azeitona, cebola e creme de leite.</p><br>
+      <img src="img/carijo.jpg" alt="" class="modal-image">
+      <h2>Pizza Carijó</h2>
+      <p>Frango, milho, bacon, calabresa, cheddar e batata palha.</p><br>
       <h4>Tamanhos:</h4><br>
       <div class="sizes">
-        <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-        <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
-        <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-        <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+        <input type="radio"   class="grande-media" id="grande" name="tamanho" value="41.90">
+        <label for="grande" class="grande-media">GRANDE = R$ 41,90</label><br><br>
+        <input type="radio"  class="grande-media" id="media" name="tamanho" value="38.90">
+        <label for="media" class="grande-media">MÉDIA = R$ 38,90</label><br>
       </div>
     </div>
     <div class="right-column">
@@ -3465,8 +4454,8 @@
       <br>
    </div>
    <div class="botoes">
-      <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-      <button class="cancelar" onclick="closeModal('Carijó')">Voltar</button>
+      <button class="add_to_cart" onclick=" addToCart('carijo')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+      <button class="cancelar" onclick="closeModal('carijo')">Voltar</button>
     </div>
     </div>
   </div>
@@ -3485,19 +4474,19 @@
 
 
 
-<div class="modal" id="Nordestina">
+<div class="modal" id="nordestina">
   <div class="modal-content">
     <div class="left-column">
       
-      <img src="img/calabresa.jpg" alt="" class="modal-image">
-      <h2>Pizza Peruana</h2>
-      <p>Peito de peru, milho, ervilha, mussarela e pimentão.</p><br>
+      <img src="img/nordestina.jpg" alt="" class="modal-image">
+      <h2>Pizza Nordestina</h2>
+      <p>Carne seca, pimentão, milho, ovos, pimenta, cebola e mussarela.</p><br>
       <h4>Tamanhos:</h4><br>
       <div class="sizes">
-        <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-        <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
-        <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-        <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+        <input type="radio"   class="grande-media" id="grande" name="tamanho" value="49.90">
+        <label for="grande" class="grande-media">GRANDE = R$ 49,90</label><br><br>
+        <input type="radio"  class="grande-media" id="media" name="tamanho" value="44.90">
+        <label for="media" class="grande-media">MÉDIA = R$ 44,90</label><br>
       </div>
     </div>
     <div class="right-column">
@@ -3587,8 +4576,8 @@
       <br>
    </div>
    <div class="botoes">
-      <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-      <button class="cancelar" onclick="closeModal('Nordestina')">Voltar</button>
+      <button class="add_to_cart" onclick=" addToCart('nordestina')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+      <button class="cancelar" onclick="closeModal('nordestina')">Voltar</button>
     </div>
     </div>
   </div>
@@ -3600,15 +4589,15 @@
   <div class="modal-content">
     <div class="left-column">
       
-      <img src="img/calabresa.jpg" alt="" class="modal-image">
-      <h2>Pizza Frango+Bacon</h2>
-      <p>Frango, mussarela, bacon e cebola.</p><br>
+      <img src="img/atum.jpg" alt="" class="modal-image">
+      <h2>Pizza de Atum</h2>
+      <p>Atum, cebola e mussarela.</p><br>
       <h4>Tamanhos:</h4><br>
       <div class="sizes">
-        <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-        <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
-        <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-        <label for="media" class="grande-media">MÉDIA = R$ 33,90</label><br>
+        <input type="radio"   class="grande-media" id="grande" name="tamanho" value="39.90">
+        <label for="grande" class="grande-media">GRANDE = R$ 39,90</label><br><br>
+        <input type="radio"  class="grande-media" id="media" name="tamanho" value="34.90">
+        <label for="media" class="grande-media">MÉDIA = R$ 34,90</label><br>
       </div>
     </div>
     <div class="right-column">
@@ -3698,8 +4687,8 @@
       <br>
    </div>
    <div class="botoes">
-      <button class="add_to_cart" onclick=" addToCart()">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-      <button class="cancelar" onclick="closeModal('Atum')">Voltar</button>
+      <button class="add_to_cart" onclick=" addToCart('atum')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+      <button class="cancelar" onclick="closeModal('atum')">Voltar</button>
     </div>
     </div>
   </div>
@@ -3712,7 +4701,7 @@
 
 
 
- <div class="div_div">
+ <div class="div_div" id="pizzasespeciais">
   <h2>Pizzas Especiais</h2>
  </div>
 
@@ -3726,29 +4715,29 @@
 
 
     <div class="card">
-      <img src="img/calabresa.jpg" alt="Pizza">
+      <img src="img/carijo.jpg" alt="Pizza">
       <h3 class="pizza-title">Pizza Carijó</h3>
       <p class="pizza-description">Frango, milho, bacon, calabresa, cheddar e batata palha.</p>
-      <p class="pizza-price">A partir de R$ 33,90</p>
-      <button onclick="openModal('alho')" class="fazer-pedido">Fazer pedido</button>
+      <p class="pizza-price">A partir de R$ 38,90</p>
+      <button onclick="openModal('carijo')" class="fazer-pedido">Fazer pedido</button>
     </div>
 
 
     <div class="card">
-      <img src="img/calabresa.jpg" alt="Pizza">
+      <img src="img/nordestina.jpg" alt="Pizza">
       <h3 class="pizza-title">Pizza Nordestina</h3>
       <p class="pizza-description">Carne Seca, pimentão, milho, ovos, pimenta, cebola e mussarela.</p>
-      <p class="pizza-price">A partir de R$ 33,90</p>
-      <button onclick="openModal('bacon')" class="fazer-pedido">Fazer pedido</button>
+      <p class="pizza-price">A partir de R$ 44,90</p>
+      <button onclick="openModal('nordestina')" class="fazer-pedido">Fazer pedido</button>
     </div>
 
 
     <div class="card">
-      <img src="img/calabresa.jpg" alt="Pizza">
+      <img src="img/atum.jpg" alt="Pizza">
       <h3 class="pizza-title">Pizza de Atum</h3>
       <p class="pizza-description">Atum, cebola e mussarela.</p>
-      <p class="pizza-price">A partir de R$ 33,90</p>
-      <button onclick="openModal('calabresa')" class="fazer-pedido">Fazer pedido</button>
+      <p class="pizza-price">A partir de R$ 34,90</p>
+      <button onclick="openModal('atum')" class="fazer-pedido">Fazer pedido</button>
     </div>
 
     </div>
