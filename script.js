@@ -105,17 +105,7 @@ closeShopping.addEventListener('click', ()=>{
 
 
 
-// Função para atualizar o contador do carrinho
-function updateCartCounter() {
-  const cartCounterElement = document.querySelector('.quantity');
-  cartCounterElement.textContent = cart.length;
-  cartCounterElement.classList.add('bounce-animation');
 
-  // Remover a classe de animação após a conclusão da animação
-  setTimeout(() => {
-    cartCounterElement.classList.remove('bounce-animation');
-  }, 600);
-}
 
 
 
@@ -155,7 +145,7 @@ function addToCart(sabor) {
 
   // Criar objeto do item adicionado
   const item = {
-    nome: `Pizza de ${sabor}`,
+    nome: `Pizza ${sabor}`,
     tamanho: tamanhoTexto,
     borda: bordaTexto,
     adicionais: adicionaisTextos,
@@ -300,7 +290,7 @@ function adicionarSaboresAoCarrinho() {
 
   // Criar o objeto do item adicionado com os dois sabores, adicional e borda selecionados
   const item = {
-    nome: `Pizza de ${sabores[0]} e ${sabores[1]}`,
+    nome: `Pizza ${sabores[0]} e ${sabores[1]}`,
     tamanho: "Grande",
     borda: bordaSelecionada,
     adicionais: adicionaisSelecionados,
@@ -362,7 +352,7 @@ function adicionarSaboresAoCarrinhoMedia() {
 
   // Criar o objeto do item adicionado com os dois sabores, adicional e borda selecionados
   const item = {
-    nome: `Pizza de ${sabores[0]} e ${sabores[1]}`,
+    nome: `Pizza  ${sabores[0]} e ${sabores[1]}`,
     tamanho: "Média",
     borda: bordaSelecionada,
     adicionais: adicionaisSelecionados,
@@ -395,10 +385,137 @@ function adicionarSaboresAoCarrinhoMedia() {
 
 
 
+function updatePriceBurguer(modalId) {
+  var modal = document.getElementById(modalId);
+  var valorHamburguer = parseFloat(modal.querySelector('.grande-media:checked').value);
+  
+  // Obter o tipo de queijo selecionado
+  var queijoSelecionado = modal.querySelector('input[name="queijo"]:checked');
+  var tipoQueijo = queijoSelecionado ? queijoSelecionado.value : "Sem queijo";
+
+  // Calcular o preço dos ingredientes adicionais selecionados
+  var ingredientesSelecionados = Array.from(modal.querySelectorAll('input[name="adicionais_burguer"]:checked'));
+  var valorIngredientes = ingredientesSelecionados.reduce(function(total, ingrediente) {
+    return total + parseFloat(ingrediente.dataset.price);
+  }, 0);
+
+  // Calcular o preço total
+  var precoTotal = valorHamburguer + valorIngredientes;
+
+  modal.querySelector("#precoTotal").textContent = "R$ " + precoTotal.toFixed(2);
+  modal.querySelector(".queijo-selecionado").textContent = tipoQueijo; // Atualiza o tipo de queijo selecionado
+}
+
+// Adicione eventos de clique aos inputs de tamanho, queijos e checkboxes de ingredientes adicionais de cada modal
+var modals = document.querySelectorAll('.modal');
+modals.forEach(function(modal) {
+  var inputsTamanho = modal.querySelectorAll('input[name="tamanho"]');
+  inputsTamanho.forEach(function(input) {
+    input.addEventListener("click", function() {
+      updatePriceBurguer(modal.id);
+    });
+  });
+
+  var checkboxesQueijo = modal.querySelectorAll('input[name="queijo"]');
+  checkboxesQueijo.forEach(function(checkbox) {
+    checkbox.addEventListener("click", function() {
+      updatePriceBurguer(modal.id);
+    });
+  });
+
+  var checkboxesAdicionais = modal.querySelectorAll('input[name="adicionais_burguer"]');
+  checkboxesAdicionais.forEach(function(checkbox) {
+    checkbox.addEventListener("click", function() {
+      updatePriceBurguer(modal.id);
+    });
+  });
+});
+
+
+
+//DEPOIS DISSO VC APAGA A SOMA DOS ADICIONAIS E O TAMANHO
+
+
+// Função para adicionar hambúrguer ao carrinho
+function addToCartBurguer(sabor) {
+  // Recuperar elementos selecionados
+  const modal = document.getElementById(sabor);
+
+  const tamanhoElement = modal.querySelector('input[name="tamanho"]:checked');
+  const tamanho = parseFloat(tamanhoElement.value);
+
+  const adicionaisSelecionados = modal.querySelectorAll('input[name="adicionais_burguer"]:checked');
+  const adicionais = Array.from(adicionaisSelecionados).map(adicional => parseFloat(adicional.value));
+  const adicionaisTextos = Array.from(adicionaisSelecionados).map(adicional => adicional.nextElementSibling.textContent);
+
+  const queijoSelecionado = modal.querySelector('input[name="queijo"]:checked');
+
+  if (!queijoSelecionado) {
+    alert("Selecione uma opção de queijo!(Cheddar ou Mussarela)");
+    return;
+  }
+
+  const queijo = queijoSelecionado.value;
+
+  if (adicionais.length > 3) {
+    alert("Selecione no máximo 3 adicionais!");
+    return;
+  }
+
+  // Recuperar a imagem do hambúrguer
+  const imagemSrc = modal.querySelector('.modal-image').src;
+
+  // Calcular o preço total
+  let precoTotal = tamanho;
+  adicionais.forEach(adicional => {
+    precoTotal += adicional;
+  });
+
+  // Criar objeto do item adicionado
+  const item = {
+    nome: ` ${sabor} (${queijo})`,
+    adicionais: adicionaisTextos,
+    precoTotal: precoTotal.toFixed(2),
+    imagem: imagemSrc,
+    observacoes: "",
+  };
+
+  // Adicionar item ao carrinho específico de hambúrguer
+  cart.push(item);
+
+  // Atualizar a exibição do carrinho específico de hambúrguer
+  updateCart();
+
+  // Atualizar o contador do carrinho geral
+  updateCartCounter();
+}
 
 
 
 
 
 
+
+
+
+
+
+const cards = document.querySelectorAll(".card");
+
+// Função para realizar a pesquisa
+function search() {
+  const searchTerm = document.getElementById("search-bar").value.toLowerCase();
+  
+  // Filtrar os cards com base no termo de pesquisa
+  const filteredCards = Array.from(cards).filter(card => {
+    const title = card.querySelector(".pizza-title").textContent.toLowerCase();
+    const description = card.querySelector(".pizza-description").textContent.toLowerCase();
+    return title.includes(searchTerm) || description.includes(searchTerm);
+  });
+  
+  // Exibir apenas os cards filtrados e esconder os demais
+  cards.forEach(card => {
+    card.style.display = filteredCards.includes(card) ? "block" : "none";
+  });
+}
 

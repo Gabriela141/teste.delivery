@@ -144,7 +144,8 @@ body {
   align-items: center;
 }
 .card_carrinho_compras .checkOut{
-  position: absolute;
+ 
+ 
   bottom: 0;
   width: 100%;
   display: grid;
@@ -213,22 +214,12 @@ justify-content:space-between; /* flex-end; */
 align-items: center;
 }
 .observacoes {
-  top: 66%;
-  position: relative;
+ 
   margin: 9px ;
+  color: white;
  }
- .observacoes label {
-  font-size: 17px;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-}
-.observacoes input {
-  width: 70%;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+
+
 
 
 
@@ -297,47 +288,36 @@ align-items: center;
  
  }
 
-.pesquisa {
+.pesquisar {
+  padding: 10px;
+  display: flex;
+  border-radius: 10px;
+}
+.pesquisarr{
   padding: 10px;
   border: 1px solid rgb(255, 0, 0);
   display: flex;
-  width: 100vw;
-  
-  
-  
+  border-radius: 10px;
+  background-color: #dab213;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+#search-bar{
+  width: 80%;
+  border-radius: 8px;
+}
+ .container_search {
+  width: 100%;
  }
- .container {
-  overflow: hidden;
- 
-  
-  
- }
-
 .img {
   float: left;
   border-radius: 100%;
   padding: 19px;
-  
-  
-
 }
 
-.search-input {
-  font-size: 16px;
-  padding: 10px;
-  border: 2px solid #3a3737;
-  border-radius: 5px;
-  width: 70%;
- }
-.search-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer; 
 
-}
+
 .inf{
   border: none;
   padding: 10px 20px;
@@ -346,11 +326,26 @@ align-items: center;
   font-family: "Sofia", sans-serif;
   font-size: 20px;
   text-shadow: 3px 3px 3px #ababab;
-  text-align: right;
-  padding: 0px 93px;
+  float: right;
+ 
   
 }
 
+.menu-container {
+
+  overflow-x: auto;
+}
+
+
+@media screen and (max-width: 500px) {
+  .menu {
+    width: 100%; /* Ajuste a largura para ocupar a tela inteira */
+    max-width: none; /* Remova a largura máxima */
+    padding: 10px; /* Reduza o espaçamento para o conteúdo */
+    white-space: nowrap;
+    display: flex;
+  }
+}
 
 .menu {
   background: rgb(242, 242, 242);
@@ -358,7 +353,18 @@ align-items: center;
   padding: 18px;
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  gap: 10px;
+  white-space: nowrap;
 }
+.menu a {
+  padding: 10px;
+  color: #000000;
+  background-color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
 .menu a:hover{
   background-color: #dfd5d5;
   border-radius: 10px;
@@ -526,21 +532,34 @@ a {
   top:0;
   bottom:0;
   right:0;
-  background-color:rgba(255, 255, 255, 0.5);
+  background-color:rgba(184, 184, 184, 0.5);
   display:none;
   transition: all ease .5s;
   justify-content: center;
   align-items: center;
-  overflow-y:auto;
-  border: 8px solid rgb(255, 0, 212);
-  
+  max-width: 100%px; /* Defina uma largura máxima para o modal */
+  margin: 0 auto;
+  padding: 20px; 
+  overflow: auto;
+}
+@media screen and (max-width: 768px) {
+  .modal {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .modal {
+    width: 100%; /* Ajuste a largura para ocupar a tela inteira */
+    max-width: none; /* Remova a largura máxima */
+    padding: 10px; /* Reduza o espaçamento para o conteúdo */
+  }
 }
 
 .modal-content {
   background-color: #fefefe;
-  margin: 10% auto;
-  padding: 10px;
-  width: 90%;
+ 
+  padding: 5px;
+  width: 510px;
   max-width: 750px;
   animation: slideIn 0.5s;
   border: 9px solid rgb(17, 0, 255);
@@ -548,6 +567,8 @@ a {
   border-radius:10px;
   box-shadow:0px 0px 15px #999;
   display:flex;
+  flex-wrap: wrap;
+
 }
 
 
@@ -565,12 +586,12 @@ a {
 
 .left-column {
   flex: 1;
-  position: relative;
   display: flex;
   flex-direction: column;
-  padding: 18px;
+  padding: 5px;
   border: 4px solid rgb(225, 255, 0);
   max-width: 200px;
+  margin-right: 50px;
  
 }
 
@@ -580,6 +601,7 @@ a {
   display:flex;
   border: 7px solid blue;
   max-width: 500px;
+ 
   
 }
 
@@ -591,6 +613,7 @@ a {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  border: 3px solid red;
   
   
  
@@ -598,8 +621,8 @@ a {
 }
 
 .modal-image {
-  width:200px;
-  height: 170px;
+  width:220px;
+  height: 220px;
   border-radius: 30px;
   
  
@@ -611,13 +634,14 @@ a {
     background-color: #dab213;
     cursor: pointer;
     height: 40px;
-    padding: 10px;
+    width: 200px;
+    padding: 5px;
     border-radius:10px;
     color:#000000;
-    display:inline-block;
     cursor:pointer;
-    margin-right:40px;
+  
   }
+  
 .cancelar:hover{
   background-color: rgb(213, 58, 58);
 }
@@ -708,8 +732,10 @@ a {
 
 
 
-
-
+.right-column_burguer{
+  line-height: 25px;
+  padding: 15px;
+}
 
 
 

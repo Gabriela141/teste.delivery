@@ -14,10 +14,13 @@
    
 </head>
 <body>
+  
       <div class="fundo">
          <img src="img/fundo.jpg" alt="fundo" class="img" width="100" height="100">
          <h1 class="marca">Pão Da Hora</h1>
 
+
+         
          <div class="shopping">
           <p class="menu-openner">🛒</p>
           <span class="quantity">0</span>
@@ -26,14 +29,23 @@
         <div class="card_carrinho_compras">
           <p id="selectedDetails"></p>
           <h1>Carrinho</h1>
+          <div class="carrinho" id="carrinho">
+            
+            
+            <div class="carrinho-items" id="carrinho-items">
+              <!-- Aqui serão exibidos os itens do carrinho -->
+              
+            </div>
+          </div>
           <ul class="listCard" id="card-items"></ul>
            <div class="observacoes">
-    <label for="observacoes">Observações:</label>
-    <input type="text" id="observacoes" name="observacoes" placeholder="Digite suas observações...">
-  </div>
+              <p>Observações:</p>
+              <textarea style="width: 100%; height: 50px;" id="observacoes" name="observacoes" placeholder="Deseja adicionar alguma observação..."></textarea>
+           </div>
+            
           <div class="checkOut">
             <div class="total" id="card-total">0</div>
-            <div class="closeShopping">Close</div>
+            <div class="closeShopping">Sair</div>
           </div>
         </div>
       
@@ -71,25 +83,35 @@
 
 
 
-     <div class="container">
-        <div class="pesquisa">
-            <input type="text" class="search-input" placeholder="Busque por um produto..." >
-            <button type="submit" class="search-button"><i class="fas fa-search"></i>  </button>
-            <button  onclick="toggleSidebar()" class="inf"><i class="fa fa-info" ></i>Informações</button>
+     <div class="container_search">
+        <div class="pesquisar">
+          <input type="text" id="search-bar" placeholder="Digite aqui para pesquisar...">
+          <button onclick="search()" class="pesquisarr">Pesquisar</button>
+
+            <button  onclick="toggleSidebar()" class="inf"><i class="fa fa-info" ></i></button>
         </div>
       </div>
  
+
+
+
+      <div class="menu-container">
       <div class="menu">
         <a href="#pizzaspromocionais"> Pizzas Promocionais </a>
         <a href="#pizzastradicionais"> Pizzas Tradicionais</a>
         <a href="#pizzasespeciais"> Pizzas Especiais </a>
-        <a href="#"> Pizzas Doces</a>
-        <a href="#"> Hambúrguer Artesanal</a>
-        <a href="#"> Hambúrguer</a>
+        <a href="#pizzasdoces"> Pizzas Doces</a>
+        <a href="#hambúrguerArtesanal"> Hambúrguer Artesanal</a>
+        <a href="#hambúrguer"> Hambúrguer</a>
+      </div>
       </div>
 
 
 
+
+
+
+      <div id="search-results"></div>
 
 
       <div class="card-container">
@@ -1099,11 +1121,12 @@
 
         <!--Esse é o código das pizzas promocionias-->
 
-      <div class="modal" id="alho">
+      <div class="modal" id="Alho">
         <div class="modal-content">
-          <div class="left-column">
+          
             
             <img src="img/calabresa.jpg" alt="" class="modal-image">
+            <div class="left-column">
             <h2>Pizza de Alho</h2>
             <p>Alho frito, mussarela e tomate.</p><br>
             <h4>Tamanhos:</h4><br>
@@ -1162,7 +1185,8 @@
               <label for="azeitona">Azeitona</label>
               <span class="price">+ R$ 3,00</span>
             </p>
-            <br><br>
+            
+            <button class="add_to_cart" onclick=" addToCart('Alho')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
            </div>
            <div class="bordas_pizza">
            <h4>Bordas:</h4>
@@ -1197,23 +1221,27 @@
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
-        
-            <br>
+             <br>
+             <br>
+             <br>
+            
+            <button class="cancelar" onclick="closeModal('Alho')">Voltar</button>
          </div>
-         <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart('alho')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-            <button class="cancelar" onclick="closeModal('alho')">Voltar</button>
-          </div>
+        
+           
+            
+          
           </div>
         </div>
       </div>
 
      
-      <div class="modal" id="bacon">
+      <div class="modal" id="Bacon">
         <div class="modal-content">
-          <div class="left-column">
+         
             
             <img src="img/calabresa.jpg" alt="" class="modal-image">
+            <div class="left-column">
             <h2>Pizza de Bacon</h2>
             <p>Bacon, cebola e mussarela.</p><br>
             <h4>Tamanhos:</h4><br>
@@ -1272,7 +1300,7 @@
               <label for="azeitona">Azeitona</label>
               <span class="price">+ R$ 3,00</span>
             </p>
-            <br><br>
+            <button class="add_to_cart" onclick=" addToCart('Bacon')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
            </div>
            <div class="bordas_pizza">
            <h4>Bordas:</h4>
@@ -1307,22 +1335,21 @@
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
-        
             <br>
+            <br><br>
+            <button class="cancelar" onclick="closeModal('Bacon')">Voltar</button>
          </div>
-         <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart('bacon')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-            <button class="cancelar" onclick="closeModal('bacon')">Voltar</button>
-          </div>
+            
           </div>
         </div>
       </div>
 
-      <div class="modal" id="calabresa">
+      <div class="modal" id="Calabresa">
         <div class="modal-content">
-          <div class="left-column">
+         
             
             <img src="img/calabresa.jpg" alt="" class="modal-image">
+            <div class="left-column">
             <h2>Pizza de Calabresa</h2>
             <p>Calabresa, cebola e mussarela.</p><br>
             <h4>Tamanhos:</h4><br>
@@ -1381,7 +1408,8 @@
               <label for="azeitona">Azeitona</label>
               <span class="price">+ R$ 3,00</span>
             </p>
-            <br><br>
+            <button class="add_to_cart" onclick=" addToCart('Calabresa')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            
            </div>
            <div class="bordas_pizza">
            <h4>Bordas:</h4>
@@ -1416,23 +1444,23 @@
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
-        
-            <br>
+           <br><br><br>
+           <button class="cancelar" onclick="closeModal('Calabresa')">Voltar</button>
+            
          </div>
-         <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart('calabresa')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-            <button class="cancelar" onclick="closeModal('calabresa')">Voltar</button>
-          </div>
+       
+         
           </div>
         </div>
       </div>
    
 
-      <div class="modal" id="catubresa">
+      <div class="modal" id="Catubresa">
         <div class="modal-content">
-          <div class="left-column">
+          
             
             <img src="img/calabresa.jpg" alt="" class="modal-image">
+            <div class="left-column">
             <h2>Pizza de Catubresa</h2>
             <p>Calabresa e Catupiry</p><br>
             <h4>Tamanhos:</h4><br>
@@ -1491,7 +1519,8 @@
               <label for="azeitona">Azeitona</label>
               <span class="price">+ R$ 3,00</span>
             </p>
-            <br><br>
+            <button class="add_to_cart" onclick=" addToCart('Catubresa')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+            
            </div>
            <div class="bordas_pizza">
            <h4>Bordas:</h4>
@@ -1525,24 +1554,22 @@
              <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
-           </p>
-        
+           </p><br><br><br>
+           <button class="cancelar" onclick="closeModal('Catubresa')">Voltar</button>
             <br>
          </div>
-         <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart('catubresa')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-            <button class="cancelar" onclick="closeModal('catubresa')">Voltar</button>
-          </div>
+         
           </div>
         </div>
       </div>
           
 
-      <div class="modal" id="catufrango">
+      <div class="modal" id="Catufrango">
         <div class="modal-content">
-          <div class="left-column">
+         
             
             <img src="img/calabresa.jpg" alt="" class="modal-image">
+            <div class="left-column">
             <h2>Pizza de Catufrango</h2>
             <p>Frango desfiado e Catupiry.</p><br>
             <h4>Tamanhos:</h4><br>
@@ -1601,7 +1628,8 @@
               <label for="azeitona">Azeitona</label>
               <span class="price">+ R$ 3,00</span>
             </p>
-            <br><br>
+            <button class="add_to_cart" onclick=" addToCart('Catufrango')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+
            </div>
            <div class="bordas_pizza">
            <h4>Bordas:</h4>
@@ -1635,14 +1663,11 @@
              <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
-           </p>
-        
-            <br>
+           </p><br><br><br>
+           <button class="cancelar" onclick="closeModal('Catufrango')">Voltar</button>
+            
          </div>
-         <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart('catufrango')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-            <button class="cancelar" onclick="closeModal('catufrango')">Voltar</button>
-          </div>
+         
           </div>
         </div>
       </div>
@@ -1652,11 +1677,12 @@
 
 
 
-      <div class="modal" id="2queijos">
+      <div class="modal" id="Dois_Queijos">
         <div class="modal-content">
-          <div class="left-column">
+         
             
             <img src="img/calabresa.jpg" alt="" class="modal-image">
+            <div class="left-column">
             <h2>Pizza de 2 Queijo</h2>
             <p>Mussarela e Catupiry.</p><br>
             <h4>Tamanhos:</h4><br>
@@ -1715,7 +1741,7 @@
               <label for="azeitona">Azeitona</label>
               <span class="price">+ R$ 3,00</span>
             </p>
-            <br><br>
+            <button class="add_to_cart" onclick=" addToCart('Dois_Queijos')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
            </div>
            <div class="bordas_pizza">
            <h4>Bordas:</h4>
@@ -1749,14 +1775,14 @@
              <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
-           </p>
-        
-            <br>
+           </p><br><br><br>
+           <button class="cancelar" onclick="closeModal('Dois_Queijos')">Voltar</button>
+            
          </div>
-         <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart('2queijos')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-            <button class="cancelar" onclick="closeModal('2queijos')">Voltar</button>
-          </div>
+  
+          
+           
+        
           </div>
         </div>
       </div>
@@ -1768,11 +1794,12 @@
 
 
 
-      <div class="modal" id="frango">
+      <div class="modal" id="Frango">
         <div class="modal-content">
-          <div class="left-column">
+          
             
             <img src="img/calabresa.jpg" alt="" class="modal-image">
+            <div class="left-column">
             <h2>Pizza de Frango</h2>
             <p>Frango desfiado e mussarela.</p><br>
             <h4>Tamanhos:</h4><br>
@@ -1831,7 +1858,8 @@
               <label for="azeitona">Azeitona</label>
               <span class="price">+ R$ 3,00</span>
             </p>
-            <br><br>
+            <button class="add_to_cart" onclick=" addToCart('Frango')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+           
            </div>
            <div class="bordas_pizza">
            <h4>Bordas:</h4>
@@ -1866,13 +1894,13 @@
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
            </p>
-        
-            <br>
+           <br><br><br>
+           <button class="cancelar" onclick="closeModal('Frango')">Voltar</button>
+            
          </div>
-         <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart('frango')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-            <button class="cancelar" onclick="closeModal('frango')">Voltar</button>
-          </div>
+       
+           
+         
           </div>
         </div>
       </div>
@@ -1887,11 +1915,12 @@
 
 
 
-      <div class="modal" id="lombo">
+      <div class="modal" id="Lombo">
         <div class="modal-content">
-          <div class="left-column">
+          
             
             <img src="./img/lombo.jpg" alt="" class="modal-image">
+            <div class="left-column">
             <h2>Pizza de Lombo</h2>
             <p>Lombo canadense e mussarela.</p><br>
             <h4>Tamanhos:</h4><br>
@@ -1950,7 +1979,7 @@
               <label for="azeitona">Azeitona</label>
               <span class="price">+ R$ 3,00</span>
             </p>
-            <br><br>
+            <button class="add_to_cart" onclick=" addToCart('Lombo')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
            </div>
            <div class="bordas_pizza">
            <h4>Bordas:</h4>
@@ -1984,14 +2013,12 @@
              <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
-           </p>
-        
+           </p><br><br><br>
+           <button class="cancelar" onclick="closeModal('Lombo')">Voltar</button>
             <br>
          </div>
-         <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart('lombo')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-            <button class="cancelar" onclick="closeModal('lombo')">Voltar</button>
-          </div>
+         
+        
           </div>
         </div>
       </div>
@@ -2001,11 +2028,12 @@
 
 
 
-      <div class="modal" id="marguerita">
+      <div class="modal" id="Marguerita">
         <div class="modal-content">
-          <div class="left-column">
+         
             
             <img src="img/calabresa.jpg" alt="" class="modal-image">
+            <div class="left-column">
             <h2>Pizza de Marguerita</h2>
             <p>Mussarela, parmesão e manjericão.</p><br>
             <h4>Tamanhos:</h4><br>
@@ -2064,7 +2092,8 @@
               <label for="azeitona">Azeitona</label>
               <span class="price">+ R$ 3,00</span>
             </p>
-            <br><br>
+            <button class="add_to_cart" onclick=" addToCart('Marguerita')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+
            </div>
            <div class="bordas_pizza">
            <h4>Bordas:</h4>
@@ -2098,14 +2127,11 @@
              <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
-           </p>
-        
+           </p><br><br><br>
+           <button class="cancelar" onclick="closeModal('Marguerita')">Voltar</button>
             <br>
          </div>
-         <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart('marguerita')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-            <button class="cancelar" onclick="closeModal('marguerita')">Voltar</button>
-          </div>
+        
           </div>
         </div>
       </div>
@@ -2120,11 +2146,12 @@
 
 
 
-      <div class="modal" id="milho">
+      <div class="modal" id="Milho">
         <div class="modal-content">
-          <div class="left-column">
+         
             
             <img src="img/calabresa.jpg" alt="" class="modal-image">
+            <div class="left-column">
             <h2>Pizza de Milho</h2>
             <p>Milho e Mussarela.</p><br>
             <h4>Tamanhos:</h4><br>
@@ -2183,7 +2210,7 @@
               <label for="azeitona">Azeitona</label>
               <span class="price">+ R$ 3,00</span>
             </p>
-            <br><br>
+            <button class="add_to_cart" onclick=" addToCart('Milho')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
            </div>
            <div class="bordas_pizza">
            <h4>Bordas:</h4>
@@ -2217,14 +2244,10 @@
              <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
-           </p>
-        
+           </p><br><br><br>
+           <button class="cancelar" onclick="closeModal('Milho')">Voltar</button>
             <br>
          </div>
-         <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart('milho')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-            <button class="cancelar" onclick="closeModal('milho')">Voltar</button>
-          </div>
           </div>
         </div>
       </div>
@@ -2235,11 +2258,12 @@
 
 
 
-      <div class="modal" id="mussarela">
+      <div class="modal" id="Mussarela">
         <div class="modal-content">
-          <div class="left-column">
+         
             
             <img src="img/calabresa.jpg" alt="" class="modal-image">
+            <div class="left-column">
             <h2>Pizza de Mussarela</h2>
             <p>Mussarela e tomate.</p><br>
             <h4>Tamanhos:</h4><br>
@@ -2298,7 +2322,8 @@
               <label for="azeitona">Azeitona</label>
               <span class="price">+ R$ 3,00</span>
             </p>
-            <br><br>
+            <button class="add_to_cart" onclick=" addToCart('Mussarela')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+
            </div>
            <div class="bordas_pizza">
            <h4>Bordas:</h4>
@@ -2332,14 +2357,11 @@
              <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
-           </p>
-        
+           </p><br><br><br>
+           <button class="cancelar" onclick="closeModal('Mussarela')">Voltar</button>
             <br>
          </div>
-         <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart('mussarela')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-            <button class="cancelar" onclick="closeModal('mussarela')">Voltar</button>
-          </div>
+         
           </div>
         </div>
       </div>
@@ -2357,11 +2379,12 @@
 
 
 
-      <div class="modal" id="napolitana">
+      <div class="modal" id="Napolitana">
         <div class="modal-content">
-          <div class="left-column">
+         
             
             <img src="img/calabresa.jpg" alt="" class="modal-image">
+            <div class="left-column">
             <h2>Pizza de Napolitana</h2>
             <p>Presunto e Mussarela.</p><br>
             <h4>Tamanhos:</h4><br>
@@ -2420,7 +2443,7 @@
               <label for="azeitona">Azeitona</label>
               <span class="price">+ R$ 3,00</span>
             </p>
-            <br><br>
+            <button class="add_to_cart" onclick=" addToCart('Napolitana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
            </div>
            <div class="bordas_pizza">
            <h4>Bordas:</h4>
@@ -2454,25 +2477,22 @@
              <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
-           </p>
-        
-            <br>
+           </p><br><br><br>
+           <button class="cancelar" onclick="closeModal('Napolitana')">Voltar</button>
          </div>
-         <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart('napolitana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-            <button class="cancelar" onclick="closeModal('napolitana')">Voltar</button>
-          </div>
+         
           </div>
         </div>
       </div>
 
 
 
-      <div class="modal" id="portuguesa">
+      <div class="modal" id="Portuguesa">
         <div class="modal-content">
-          <div class="left-column">
+          
             
             <img src="img/calabresa.jpg" alt="" class="modal-image">
+            <div class="left-column">
             <h2>Pizza de Portuguesa</h2>
             <p>Presunto, milho, ovo, mussarela, cebola, pimentão e tomate.</p><br>
             <h4>Tamanhos:</h4><br>
@@ -2531,7 +2551,7 @@
               <label for="azeitona">Azeitona</label>
               <span class="price">+ R$ 3,00</span>
             </p>
-            <br><br>
+            <button class="add_to_cart" onclick=" addToCart('Portuguesa')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
            </div>
            <div class="bordas_pizza">
            <h4>Bordas:</h4>
@@ -2565,14 +2585,11 @@
              <input type="checkbox" name="bordas" value="10.00">
              <label for="azeitona">Mussarela</label>
              <span class="price">+ R$ 10,00</span>
-           </p>
-        
-            <br>
+           </p><br><br><br>
+           <button class="cancelar" onclick="closeModal('Portuguesa')">Voltar</button>
+          
          </div>
-         <div class="botoes">
-            <button class="add_to_cart" onclick=" addToCart('portuguesa')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-            <button class="cancelar" onclick="closeModal('portuguesa')">Voltar</button>
-          </div>
+       
           </div>
         </div>
       </div>
@@ -2597,7 +2614,7 @@
     <h3 class="pizza-title">Pizza de Alho</h3>
     <p class="pizza-description">Alho frito, mussarela e tomate.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
-    <button onclick="openModal('alho')" class="fazer-pedido">Fazer pedido</button>
+    <button onclick="openModal('Alho')" class="fazer-pedido">Fazer pedido</button>
   </div>
 
 
@@ -2606,7 +2623,7 @@
     <h3 class="pizza-title">Pizza de Bacon</h3>
     <p class="pizza-description">Bacon, cebola e mussarela.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
-    <button onclick="openModal('bacon')" class="fazer-pedido">Fazer pedido</button>
+    <button onclick="openModal('Bacon')" class="fazer-pedido">Fazer pedido</button>
   </div>
 
 
@@ -2615,7 +2632,7 @@
     <h3 class="pizza-title">Pizza de Calabresa</h3>
     <p class="pizza-description">Calabresa, cebola e mussarela.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
-    <button onclick="openModal('calabresa')" class="fazer-pedido">Fazer pedido</button>
+    <button onclick="openModal('Calabresa')" class="fazer-pedido">Fazer pedido</button>
   </div>
 
 
@@ -2624,7 +2641,7 @@
     <h3 class="pizza-title">Pizza de Catubresa</h3>
     <p class="pizza-description">Calabresa e catupiry.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
-    <button onclick="openModal('catubresa')" class="fazer-pedido">Fazer pedido</button>
+    <button onclick="openModal('Catubresa')" class="fazer-pedido">Fazer pedido</button>
   </div>
 
 
@@ -2633,7 +2650,7 @@
     <h3 class="pizza-title">Pizza de Catufrango</h3>
     <p class="pizza-description">Frango desfiado e catupiry.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
-    <button onclick="openModal('catufrango')" class="fazer-pedido">Fazer pedido</button>
+    <button onclick="openModal('Catufrango')" class="fazer-pedido">Fazer pedido</button>
   </div>
 
 
@@ -2642,7 +2659,7 @@
     <h3 class="pizza-title">Pizza 2 queijos</h3>
     <p class="pizza-description">Mussarela e catupiry.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
-    <button onclick="openModal('2queijos')" class="fazer-pedido">Fazer pedido</button>
+    <button onclick="openModal('Dois_Queijos')" class="fazer-pedido">Fazer pedido</button>
   </div>
 
 
@@ -2651,7 +2668,7 @@
     <h3 class="pizza-title">Pizza de Frango</h3>
     <p class="pizza-description">Frango desfiado e mussarela.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
-    <button onclick="openModal('frango')" class="fazer-pedido">Fazer pedido</button>
+    <button onclick="openModal('Frango')" class="fazer-pedido">Fazer pedido</button>
   </div>
 
 
@@ -2660,7 +2677,7 @@
     <h3 class="pizza-title">Pizza de Lombo</h3>
     <p class="pizza-description">Lombo canadense e mussarela.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
-    <button onclick="openModal('lombo')" class="fazer-pedido">Fazer pedido</button>
+    <button onclick="openModal('Lombo')" class="fazer-pedido">Fazer pedido</button>
   </div>
 
 
@@ -2669,7 +2686,7 @@
     <h3 class="pizza-title">Pizza de Marguerita</h3>
     <p class="pizza-description">Mussarela, parmesão e manjericão.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
-    <button onclick="openModal('marguerita')" class="fazer-pedido">Fazer pedido</button>
+    <button onclick="openModal('Marguerita')" class="fazer-pedido">Fazer pedido</button>
   </div>
 
 
@@ -2678,7 +2695,7 @@
     <h3 class="pizza-title">Pizza de Milho</h3>
     <p class="pizza-description">Milho e mussarela.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
-    <button onclick="openModal('milho')" class="fazer-pedido">Fazer pedido</button>
+    <button onclick="openModal('Milho')" class="fazer-pedido">Fazer pedido</button>
   </div>
 
 
@@ -2687,7 +2704,7 @@
     <h3 class="pizza-title">Pizza de Mussarela</h3>
     <p class="pizza-description">Mussarela e tomate.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
-    <button onclick="openModal('mussarela')" class="fazer-pedido">Fazer pedido</button>
+    <button onclick="openModal('Mussarela')" class="fazer-pedido">Fazer pedido</button>
   </div>
 
 
@@ -2696,7 +2713,7 @@
     <h3 class="pizza-title">Pizza de Napolitana</h3>
     <p class="pizza-description">Presunto e mussarela.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
-    <button onclick="openModal('napolitana')" class="fazer-pedido">Fazer pedido</button>
+    <button onclick="openModal('Napolitana')" class="fazer-pedido">Fazer pedido</button>
   </div>
 
 
@@ -2705,7 +2722,7 @@
     <h3 class="pizza-title">Pizza de Portuguesa</h3>
     <p class="pizza-description">Presunto, milho, ervilha, ovo, mussarela, cebola, pimentão e tomate.</p>
     <p class="pizza-price">A partir de R$ 33,90</p>
-    <button onclick="openModal('portuguesa')" class="fazer-pedido">Fazer pedido</button>
+    <button onclick="openModal('Portuguesa')" class="fazer-pedido">Fazer pedido</button>
   </div>
 </div>
 </div>
@@ -2803,128 +2820,17 @@
 
 
    
-    <div class="modal" id="americana">
+    <div class="modal" id="Americana">
       <div class="modal-content">
-        <div class="left-column">
+        
           
           <img src="img/americana.jpg" alt="" class="modal-image">
+          <div class="left-column">
           <h2>Pizza Americana</h2>
           <p>Presunto, bacon, palmito, cebola e mussarela.</p><br>
           <h4>Tamanhos:</h4><br>
           <div class="sizes">
-            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
-            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
-            <input type="radio"  class="grande-media" id="media" name="tamanho" value="33.90">
-            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
-          </div>
-        </div>
-        <div class="right-column">
-          <div class="adicionais_pizza">
-          <h4>Adicionais:</h4>
-          <p>
-            <input type="checkbox" name="adicionais" value="10.00">
-            <label for="queijo">Mussarela</label>
-            <span class="price">+ R$ 10,00</span>
-          </p>
-          <p>
-            <input type="checkbox" name="adicionais" value="10.00">
-            <label for="tomate">Bacon</label>
-            <span class="price">+ R$ 10,00</span>
-          </p>
-          <p>
-            <input type="checkbox" name="adicionais" value="10.00">
-            <label for="cebola">Calabresa</label>
-            <span class="price">+ R$ 10.00</span>
-          </p>
-          <p>
-            <input type="checkbox" name="adicionais" value="10.00">
-            <label for="azeitona">Frango</label>
-            <span class="price">+ R$ 10.00</span>
-          </p>
-          <p>
-            <input type="checkbox" name="adicionais" value="3.0">
-            <label for="azeitona">Milho</label>
-            <span class="price">+ R$ 3,00</span>
-          </p>
-          <p>
-            <input type="checkbox" name="adicionais" value="3.0">
-            <label for="azeitona">Ervilha</label>
-            <span class="price">+ R$ 3,00</span>
-          </p>
-          <p>
-            <input type="checkbox" name="adicionais" value="3.0">
-            <label for="azeitona">Cebola</label>
-            <span class="price">+ R$ 3,00</span>
-          </p>
-          <p>
-            <input type="checkbox" name="adicionais" value="3.0">
-            <label for="azeitona">Tomate</label>
-            <span class="price">+ R$ 3,00</span>
-          </p>
-          <p>
-            <input type="checkbox" name="adicionais" value="3.0">
-            <label for="azeitona">Azeitona</label>
-            <span class="price">+ R$ 3,00</span>
-          </p>
-          <br><br>
-         </div>
-         <div class="bordas_pizza">
-         <h4>Bordas:</h4>
-         
-         <p>
-           <input type="checkbox" name="bordas" value="5.0">
-           <label for="queijo">Catupiry</label>
-           <span class="price">+ R$ 5,00</span>
-         </p>
-         <p>
-           <input type="checkbox" name="bordas" value="5.0">
-           <label for="tomate">Cheddar</label>
-           <span class="price">+ R$ 5,00</span>
-         </p>
-         <p>
-           <input type="checkbox" name="bordas" value="8.00">
-           <label for="cebola">Chocolate</label>
-           <span class="price">+ R$ 8,00</span>
-         </p>
-         <p>
-           <input type="checkbox" name="bordas" value="10.00">
-           <label for="azeitona">Calabresa</label>
-           <span class="price">+ R$ 10,00</span>
-         </p>
-         <p>
-           <input type="checkbox" name="bordas" value="10.00">
-           <label for="azeitona">Frango</label>
-           <span class="price">+ R$ 10,00</span>
-         </p>
-         <p>
-           <input type="checkbox" name="bordas" value="10.00">
-           <label for="azeitona">Mussarela</label>
-           <span class="price">+ R$ 10,00</span>
-         </p>
-      
-          <br>
-       </div>
-       <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart('americana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('americana')">Voltar</button>
-        </div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-    <div class="modal" id="pizza-da-hora">
-      <div class="modal-content">
-        <div class="left-column">
-          
-          <img src="img/da_hora.jpg" alt="" class="modal-image">
-          <h2>Pizza Da Hora</h2>
-          <p>Calabresa, bacon, ervilha, milho, palmito, mussarela, cebola e tomate.</p><br>
-          <h4>Tamanhos:</h4><br>
-          <div class="sizes">
-            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="40.90">
             <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
             <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
             <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
@@ -2978,7 +2884,7 @@
             <label for="azeitona">Azeitona</label>
             <span class="price">+ R$ 3,00</span>
           </p>
-          <br><br>
+          <button class="add_to_cart" onclick=" addToCart('Americana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
          </div>
          <div class="bordas_pizza">
          <h4>Bordas:</h4>
@@ -3012,24 +2918,130 @@
            <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
-         </p>
-      
-          <br>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Americana')">Voltar</button>
+          
        </div>
-       <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart('pizza-da-hora')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('pizza-da-hora')">Voltar</button>
+       
         </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="modal" id="Da_Hora">
+      <div class="modal-content">
+     
+          
+          <img src="img/da_hora.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza Da Hora</h2>
+          <p>Calabresa, bacon, ervilha, milho, palmito, mussarela, cebola e tomate.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="40.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Da_Hora')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Da_Hora')">Voltar</button>
+       </div>
         </div>
       </div>
     </div>
  
 
-    <div class="modal" id="baiana">
+    <div class="modal" id="Baiana">
       <div class="modal-content">
-        <div class="left-column">
+        
           
           <img src="img/baiana.jpg" alt="" class="modal-image">
+          <div class="left-column">
           <h2>Pizza Baiana</h2>
           <p>Calabresa moída, ovo, bacon, frango, cebola e mussarela.</p><br>
           <h4>Tamanhos:</h4><br>
@@ -3088,7 +3100,7 @@
             <label for="azeitona">Azeitona</label>
             <span class="price">+ R$ 3,00</span>
           </p>
-          <br><br>
+          <button class="add_to_cart" onclick=" addToCart('Baiana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
          </div>
          <div class="bordas_pizza">
          <h4>Bordas:</h4>
@@ -3122,24 +3134,22 @@
            <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
-         </p>
-      
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Baiana')">Voltar</button>
           <br>
        </div>
-       <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart('baiana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('baiana')">Voltar</button>
-        </div>
+
         </div>
       </div>
     </div>
         
 
-    <div class="modal" id="brasilia">
+    <div class="modal" id="Brasilia">
       <div class="modal-content">
-        <div class="left-column">
+       
           
           <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <div class="left-column">
           <h2>Pizza Brasilia</h2>
           <p>Presunto, bacon, cebola, pimentão, catupiry, tomate e ovo.</p><br>
           <h4>Tamanhos:</h4><br>
@@ -3198,7 +3208,7 @@
             <label for="azeitona">Azeitona</label>
             <span class="price">+ R$ 3,00</span>
           </p>
-          <br><br>
+          <button class="add_to_cart" onclick=" addToCart('Brasilia')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
          </div>
          <div class="bordas_pizza">
          <h4>Bordas:</h4>
@@ -3233,13 +3243,8 @@
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
          </p>
-      
-          <br>
+         <button class="cancelar" onclick="closeModal('Brasilia')">Voltar</button>
        </div>
-       <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart('brasilia')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('brasilia')">Voltar</button>
-        </div>
         </div>
       </div>
     </div>
@@ -3249,11 +3254,12 @@
 
 
 
-    <div class="modal" id="calabresa-especial">
+    <div class="modal" id="Calabresa_Especial">
       <div class="modal-content">
-        <div class="left-column">
+      
           
           <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <div class="left-column">
           <h2>Pizza Calabresa Especial</h2>
           <p>Calabresa, bacon, frango, mussarela e cebola.</p><br>
           <h4>Tamanhos:</h4><br>
@@ -3312,7 +3318,7 @@
             <label for="azeitona">Azeitona</label>
             <span class="price">+ R$ 3,00</span>
           </p>
-          <br><br>
+          <button class="add_to_cart" onclick=" addToCart('Calabresa_Especial')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
          </div>
          <div class="bordas_pizza">
          <h4>Bordas:</h4>
@@ -3346,14 +3352,10 @@
            <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
-         </p>
-      
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Calabresa_Especial')">Voltar</button>
           <br>
        </div>
-       <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart('calabresa-especial')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('calabresa-especial')">Voltar</button>
-        </div>
         </div>
       </div>
     </div>
@@ -3365,11 +3367,12 @@
 
 
 
-    <div class="modal" id="canadense">
+    <div class="modal" id="Canadense">
       <div class="modal-content">
-        <div class="left-column">
+      
           
           <img src="img/calabresa.jpg" alt="" class="modal-image">
+            <div class="left-column">
           <h2>Pizza Canadense</h2>
           <p>Lombo, palmito, frango, bacon e mussarela..</p><br>
           <h4>Tamanhos:</h4><br>
@@ -3428,7 +3431,7 @@
             <label for="azeitona">Azeitona</label>
             <span class="price">+ R$ 3,00</span>
           </p>
-          <br><br>
+          <button class="add_to_cart" onclick=" addToCart('Canadense')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
          </div>
          <div class="bordas_pizza">
          <h4>Bordas:</h4>
@@ -3462,14 +3465,10 @@
            <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
-         </p>
-      
-          <br>
+         </p><br><br><br>
+          <button class="cancelar" onclick="closeModal('Canadense')">Voltar</button>
        </div>
-       <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart('canadense')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('canadense')">Voltar</button>
-        </div>
+      
         </div>
       </div>
     </div>
@@ -3484,11 +3483,12 @@
 
 
 
-    <div class="modal" id="candanga">
+    <div class="modal" id="Candanga">
       <div class="modal-content">
-        <div class="left-column">
+       
           
           <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <div class="left-column">
           <h2>Pizza Candanga</h2>
           <p>Mussarela, presunto, palmito, milho, calabresa e cebola.</p><br>
           <h4>Tamanhos:</h4><br>
@@ -3547,7 +3547,7 @@
             <label for="azeitona">Azeitona</label>
             <span class="price">+ R$ 3,00</span>
           </p>
-          <br><br>
+          <button class="add_to_cart" onclick=" addToCart('Candanga')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
          </div>
          <div class="bordas_pizza">
          <h4>Bordas:</h4>
@@ -3581,13 +3581,9 @@
            <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
-         </p>
-      
-          <br>
-       </div>
-       <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart('candanga')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('candanga')">Voltar</button>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Candanga')">Voltar</button>
+          
         </div>
         </div>
       </div>
@@ -3598,11 +3594,12 @@
 
 
 
-    <div class="modal" id="palmito">
+    <div class="modal" id="Palmito">
       <div class="modal-content">
-        <div class="left-column">
+       
           
           <img src="img/palmito.jpg" alt="" class="modal-image">
+          <div class="left-column">
           <h2>Pizza de Palmito.</h2>
           <p>Palmito, bacon e mussarela.</p><br>
           <h4>Tamanhos:</h4><br>
@@ -3661,7 +3658,7 @@
             <label for="azeitona">Azeitona</label>
             <span class="price">+ R$ 3,00</span>
           </p>
-          <br><br>
+          <button class="add_to_cart" onclick=" addToCart('Palmito')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
          </div>
          <div class="bordas_pizza">
          <h4>Bordas:</h4>
@@ -3695,14 +3692,9 @@
            <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
-         </p>
-      
-          <br>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Palmito')">Voltar</button>
        </div>
-       <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart('palmito')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('palmito')">Voltar</button>
-        </div>
         </div>
       </div>
     </div>
@@ -3717,11 +3709,12 @@
 
 
 
-    <div class="modal" id="toscana">
+    <div class="modal" id="Toscana">
       <div class="modal-content">
-        <div class="left-column">
+      
           
           <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <div class="left-column">
           <h2>Pizza Toscana</h2>
           <p>Calabresa moída, presunto, bacon, pimenta, mussarela e tomate.</p><br>
           <h4>Tamanhos:</h4><br>
@@ -3780,7 +3773,7 @@
             <label for="azeitona">Azeitona</label>
             <span class="price">+ R$ 3,00</span>
           </p>
-          <br><br>
+          <button class="add_to_cart" onclick=" addToCart('Toscana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
          </div>
          <div class="bordas_pizza">
          <h4>Bordas:</h4>
@@ -3815,13 +3808,8 @@
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
          </p>
-      
-          <br>
+         <button class="cancelar" onclick="closeModal('Toscana')">Voltar</button>
        </div>
-       <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart('toscana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('toscana')">Voltar</button>
-        </div>
         </div>
       </div>
     </div>
@@ -3832,11 +3820,12 @@
 
 
 
-    <div class="modal" id="frango-especial">
+    <div class="modal" id="Frango_Especial">
       <div class="modal-content">
-        <div class="left-column">
+      
           
           <img src="img/frango_especial.jpg" alt="" class="modal-image">
+          <div class="left-column">
           <h2>Pizza Frango Especial</h2>
           <p>Mussarela, frango, milho, azeitona, cebola e creme de leite.</p><br>
           <h4>Tamanhos:</h4><br>
@@ -3895,7 +3884,7 @@
             <label for="azeitona">Azeitona</label>
             <span class="price">+ R$ 3,00</span>
           </p>
-          <br><br>
+          <button class="add_to_cart" onclick=" addToCart('Frango_Especial')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
          </div>
          <div class="bordas_pizza">
          <h4>Bordas:</h4>
@@ -3929,14 +3918,9 @@
            <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
-         </p>
-      
-          <br>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Frango_Especial')">Voltar</button>
        </div>
-       <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart('frango-especial')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('frango-especial')">Voltar</button>
-        </div>
         </div>
       </div>
     </div>
@@ -3954,11 +3938,12 @@
 
 
 
-    <div class="modal" id="peruana">
+    <div class="modal" id="Peruana">
       <div class="modal-content">
-        <div class="left-column">
+       
           
           <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <div class="left-column">
           <h2>Pizza Peruana</h2>
           <p>Peito de peru, milho, ervilha, mussarela e pimentão.</p><br>
           <h4>Tamanhos:</h4><br>
@@ -4017,7 +4002,7 @@
             <label for="azeitona">Azeitona</label>
             <span class="price">+ R$ 3,00</span>
           </p>
-          <br><br>
+          <button class="add_to_cart" onclick=" addToCart('Peruana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
          </div>
          <div class="bordas_pizza">
          <h4>Bordas:</h4>
@@ -4051,25 +4036,22 @@
            <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
-         </p>
-      
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Peruana')">Voltar</button>
           <br>
        </div>
-       <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart('peruana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('peruana')">Voltar</button>
-        </div>
         </div>
       </div>
     </div>
 
 
 
-    <div class="modal" id="frango+bacon">
+    <div class="modal" id="Frango_Mais_Bacon">
       <div class="modal-content">
-        <div class="left-column">
+       
           
           <img src="./img/frango_bacon.jpg" alt="" class="modal-image">
+          <div class="left-column">
           <h2>Pizza Frango+Bacon</h2>
           <p>Frango, mussarela, bacon e cebola.</p><br>
           <h4>Tamanhos:</h4><br>
@@ -4128,7 +4110,7 @@
             <label for="azeitona">Azeitona</label>
             <span class="price">+ R$ 3,00</span>
           </p>
-          <br><br>
+          <button class="add_to_cart" onclick=" addToCart('Frango_Mais_Bacon')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
          </div>
          <div class="bordas_pizza">
          <h4>Bordas:</h4>
@@ -4162,14 +4144,9 @@
            <input type="checkbox" name="bordas" value="10.00">
            <label for="azeitona">Mussarela</label>
            <span class="price">+ R$ 10,00</span>
-         </p>
-      
-          <br>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Frango_Mais_Bacon')">Voltar</button>
        </div>
-       <div class="botoes">
-          <button class="add_to_cart" onclick=" addToCart('frango+bacon')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-          <button class="cancelar" onclick="closeModal('frango+bacon')">Voltar</button>
-        </div>
         </div>
       </div>
     </div>
@@ -4198,7 +4175,7 @@
           <h3 class="pizza-title">Pizza Americana</h3>
           <p class="pizza-description">Presunto, bacon, palmito, cebola e mussarela.</p>
           <p class="pizza-price">A partir de R$ 36,90</p>
-          <button onclick="openModal('americana')" class="fazer-pedido">Fazer pedido</button>
+          <button onclick="openModal('Americana')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
@@ -4207,7 +4184,7 @@
           <h3 class="pizza-title">Pizza Da Hora</h3>
           <p class="pizza-description">Calabresa, bacon, ervilha, milho, palmito, mussarela, cebola e tomate.</p>
           <p class="pizza-price">A partir de R$ 36,90</p>
-          <button onclick="openModal('pizza-da-hora')" class="fazer-pedido">Fazer pedido</button>
+          <button onclick="openModal('Da_Hora')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
@@ -4216,7 +4193,7 @@
           <h3 class="pizza-title">Pizza Baiana</h3>
           <p class="pizza-description">Calabresa moída, ovo, bacon, frango, cebola e mussarela.</p>
           <p class="pizza-price">A partir de R$ 36,90</p>
-          <button onclick="openModal('baiana')" class="fazer-pedido">Fazer pedido</button>
+          <button onclick="openModal('Baiana')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
@@ -4225,7 +4202,7 @@
           <h3 class="pizza-title">Pizza Brasilia</h3>
           <p class="pizza-description">Presunto, bacon, cebola, pimentão, catupiry, tomate e ovo.</p>
           <p class="pizza-price">A partir de R$ 36,90</p>
-          <button onclick="openModal('brasilia')" class="fazer-pedido">Fazer pedido</button>
+          <button onclick="openModal('Brasilia')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
@@ -4234,7 +4211,7 @@
           <h3 class="pizza-title">Pizza Calabresa Especial</h3>
           <p class="pizza-description">Calabresa, bacon, frango, mussarela e cebola.</p>
           <p class="pizza-price">A partir de R$ 36,90</p>
-          <button onclick="openModal('calabresa-especial')" class="fazer-pedido">Fazer pedido</button>
+          <button onclick="openModal('Calabresa_Especial')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
@@ -4243,7 +4220,7 @@
           <h3 class="pizza-title">Pizza Canadense.</h3>
           <p class="pizza-description">Lombo, palmito, frango, bacon e mussarela.</p>
           <p class="pizza-price">A partir de R$ 36,90</p>
-          <button onclick="openModal('canadense')" class="fazer-pedido">Fazer pedido</button>
+          <button onclick="openModal('Canadense')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
@@ -4252,7 +4229,7 @@
           <h3 class="pizza-title">Pizza Candanga</h3>
           <p class="pizza-description">Mussarela, presunto, palmito, milho, calabresa e cebola.</p>
           <p class="pizza-price">A partir de R$ 36,90</p>
-          <button onclick="openModal('candanga')" class="fazer-pedido">Fazer pedido</button>
+          <button onclick="openModal('Candanga')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
@@ -4261,7 +4238,7 @@
           <h3 class="pizza-title">Pizza de Palmito</h3>
           <p class="pizza-description">Palmito, bacon e mussarela.</p>
           <p class="pizza-price">A partir de R$ 36,90</p>
-          <button onclick="openModal('palmito')" class="fazer-pedido">Fazer pedido</button>
+          <button onclick="openModal('Palmito')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
@@ -4270,7 +4247,7 @@
           <h3 class="pizza-title">Pizza Toscana</h3>
           <p class="pizza-description">Calabresa moída, presunto, bacon, pimenta, mussarela e tomate.</p>
           <p class="pizza-price">A partir de R$ 36,90</p>
-          <button onclick="openModal('toscana')" class="fazer-pedido">Fazer pedido</button>
+          <button onclick="openModal('Toscana')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
@@ -4279,7 +4256,7 @@
           <h3 class="pizza-title">Pizza Frango Especial</h3>
           <p class="pizza-description">Mussarela, frango, milho, azeitona, cebola e creme de leite.</p>
           <p class="pizza-price">A partir de R$ 36,90</p>
-          <button onclick="openModal('frango-especial')" class="fazer-pedido">Fazer pedido</button>
+          <button onclick="openModal('Frango_Especial')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
@@ -4288,7 +4265,7 @@
           <h3 class="pizza-title">Pizza Peruana</h3>
           <p class="pizza-description">Peito de Peru, milho, ervilha, mussarela e pimentão.</p>
           <p class="pizza-price">A partir de R$ 36,90</p>
-          <button onclick="openModal('peruana')" class="fazer-pedido">Fazer pedido</button>
+          <button onclick="openModal('Peruana')" class="fazer-pedido">Fazer pedido</button>
         </div>
 
 
@@ -4297,7 +4274,7 @@
           <h3 class="pizza-title">Pizza Frango+Bacon</h3>
           <p class="pizza-description">Frango, mussarela, bacon e cebola.</p>
           <p class="pizza-price">A partir de R$ 36,90</p>
-          <button onclick="openModal('frango+bacon')" class="fazer-pedido">Fazer pedido</button>
+          <button onclick="openModal('Frango_Mais_Bacon')" class="fazer-pedido">Fazer pedido</button>
         </div> 
         </div>
   
@@ -4352,11 +4329,11 @@
 
 
 
-<div class="modal" id="carijo">
+<div class="modal" id="Carijó">
   <div class="modal-content">
-    <div class="left-column">
       
       <img src="img/carijo.jpg" alt="" class="modal-image">
+      <div class="left-column">
       <h2>Pizza Carijó</h2>
       <p>Frango, milho, bacon, calabresa, cheddar e batata palha.</p><br>
       <h4>Tamanhos:</h4><br>
@@ -4415,7 +4392,7 @@
         <label for="azeitona">Azeitona</label>
         <span class="price">+ R$ 3,00</span>
       </p>
-      <br><br>
+      <button class="add_to_cart" onclick=" addToCart('Carijó')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
      </div>
      <div class="bordas_pizza">
      <h4>Bordas:</h4>
@@ -4449,14 +4426,9 @@
        <input type="checkbox" name="adicionais" value="10.00">
        <label for="azeitona">Mussarela</label>
        <span class="price">+ R$ 10,00</span>
-     </p>
-  
-      <br>
+     </p><br><br><br>
+     <button class="cancelar" onclick="closeModal('Carijó')">Voltar</button>
    </div>
-   <div class="botoes">
-      <button class="add_to_cart" onclick=" addToCart('carijo')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-      <button class="cancelar" onclick="closeModal('carijo')">Voltar</button>
-    </div>
     </div>
   </div>
 </div>
@@ -4474,11 +4446,11 @@
 
 
 
-<div class="modal" id="nordestina">
+<div class="modal" id="Nordestina">
   <div class="modal-content">
-    <div class="left-column">
       
       <img src="img/nordestina.jpg" alt="" class="modal-image">
+      <div class="left-column">
       <h2>Pizza Nordestina</h2>
       <p>Carne seca, pimentão, milho, ovos, pimenta, cebola e mussarela.</p><br>
       <h4>Tamanhos:</h4><br>
@@ -4537,7 +4509,7 @@
         <label for="azeitona">Azeitona</label>
         <span class="price">+ R$ 3,00</span>
       </p>
-      <br><br>
+      <button class="add_to_cart" onclick=" addToCart('Nordestina')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
      </div>
      <div class="bordas_pizza">
      <h4>Bordas:</h4>
@@ -4571,25 +4543,21 @@
        <input type="checkbox" name="adicionais" value="10.00">
        <label for="azeitona">Mussarela</label>
        <span class="price">+ R$ 10,00</span>
-     </p>
-  
-      <br>
-   </div>
-   <div class="botoes">
-      <button class="add_to_cart" onclick=" addToCart('nordestina')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-      <button class="cancelar" onclick="closeModal('nordestina')">Voltar</button>
-    </div>
+     </p><br><br><br>
+     <button class="cancelar" onclick="closeModal('Nordestina')">Voltar</button>
+     </div>
     </div>
   </div>
 </div>
 
 
 
-<div class="modal" id="atum">
+<div class="modal" id="Atum">
   <div class="modal-content">
-    <div class="left-column">
+  
       
       <img src="img/atum.jpg" alt="" class="modal-image">
+      <div class="left-column">
       <h2>Pizza de Atum</h2>
       <p>Atum, cebola e mussarela.</p><br>
       <h4>Tamanhos:</h4><br>
@@ -4648,7 +4616,7 @@
         <label for="azeitona">Azeitona</label>
         <span class="price">+ R$ 3,00</span>
       </p>
-      <br><br>
+      <button class="add_to_cart" onclick=" addToCart('Atum')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
      </div>
      <div class="bordas_pizza">
      <h4>Bordas:</h4>
@@ -4682,14 +4650,9 @@
        <input type="checkbox" name="adicionais" value="10.00">
        <label for="azeitona">Mussarela</label>
        <span class="price">+ R$ 10,00</span>
-     </p>
-  
-      <br>
+     </p><br><br><br>
+     <button class="cancelar" onclick="closeModal('Atum')">Voltar</button>
    </div>
-   <div class="botoes">
-      <button class="add_to_cart" onclick=" addToCart('atum')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
-      <button class="cancelar" onclick="closeModal('atum')">Voltar</button>
-    </div>
     </div>
   </div>
 </div>
@@ -4719,7 +4682,7 @@
       <h3 class="pizza-title">Pizza Carijó</h3>
       <p class="pizza-description">Frango, milho, bacon, calabresa, cheddar e batata palha.</p>
       <p class="pizza-price">A partir de R$ 38,90</p>
-      <button onclick="openModal('carijo')" class="fazer-pedido">Fazer pedido</button>
+      <button onclick="openModal('Carijó')" class="fazer-pedido">Fazer pedido</button>
     </div>
 
 
@@ -4728,7 +4691,7 @@
       <h3 class="pizza-title">Pizza Nordestina</h3>
       <p class="pizza-description">Carne Seca, pimentão, milho, ovos, pimenta, cebola e mussarela.</p>
       <p class="pizza-price">A partir de R$ 44,90</p>
-      <button onclick="openModal('nordestina')" class="fazer-pedido">Fazer pedido</button>
+      <button onclick="openModal('Nordestina')" class="fazer-pedido">Fazer pedido</button>
     </div>
 
 
@@ -4737,19 +4700,2242 @@
       <h3 class="pizza-title">Pizza de Atum</h3>
       <p class="pizza-description">Atum, cebola e mussarela.</p>
       <p class="pizza-price">A partir de R$ 34,90</p>
-      <button onclick="openModal('atum')" class="fazer-pedido">Fazer pedido</button>
+      <button onclick="openModal('Atum')" class="fazer-pedido">Fazer pedido</button>
     </div>
 
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--MODAL PIZZAS DOCES, UMA SEPARAÇÃO PARA UMA MELHOR MUNUTENÇÃO-->
+
+
+
+
+
+
+
+
+    <div class="div_div" id="pizzasdoces">
+      <h2>Pizzas Doces</h2>
+     </div>
+    
+     <div class="card-container">
+
+
+
+      <div class="card">
+        <img src="./img/banana.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza de Banana</h3>
+        <p class="pizza-description">Mussarela, banana com canela e açucar.</p>
+        <p class="pizza-price">A partir de R$ 35,90</p>
+        <button onclick="openModal('Banana')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    
+    
+      <div class="card">
+        <img src="img/calabresa.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza Banana Com Chocolate</h3>
+        <p class="pizza-description">Mussarela, banana e chocolate ao leite.</p>
+        <p class="pizza-price">A partir de R$ 40,90</p>
+        <button onclick="openModal('Banana_com_Chocolate')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    
+    
+      <div class="card">
+        <img src="./img/branca_de_neve.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza Branca de Neve</h3>
+        <p class="pizza-description">Mussarela, chocolate branco, granulado meio amargo e cereja.</p>
+        <p class="pizza-price">A partir de R$ 40,90</p>
+        <button onclick="openModal('Branca_de_Neve')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    
+    
+      <div class="card">
+        <img src="img/calabresa.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza de Chocolate</h3>
+        <p class="pizza-description">Mussarela e chocolate ao leite.</p>
+        <p class="pizza-price">A partir de R$ 39,90</p>
+        <button onclick="openModal('Chocolate')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    
+    
+      <div class="card">
+        <img src="img/calabresa.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza California</h3>
+        <p class="pizza-description">Mussarela, abacaxi, pêssego, figo e uva passa.</p>
+        <p class="pizza-price">A partir de R$ 40,90</p>
+        <button onclick="openModal('California')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    
+    
+      <div class="card">
+        <img src="./img/confete.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza de Confete</h3>
+        <p class="pizza-description">Mussarela, chocolate ao leite e confete.</p>
+        <p class="pizza-price">A partir de R$ 40,90</p>
+        <button onclick="openModal('Confete')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    
+    
+      <div class="card">
+        <img src="./img/doce_de_leite.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza de Doce de Leite</h3>
+        <p class="pizza-description">Mussarela, doce de leite e coco ralado.</p>
+        <p class="pizza-price">A partir de R$ 35,90</p>
+        <button onclick="openModal('Doce_de_Leite')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    
+    
+      <div class="card">
+        <img src="img/lombo.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza de Doce de Leite Com Morango</h3>
+        <p class="pizza-description">Doce de leite, chocolate, mussarela e morango.</p>
+        <p class="pizza-price">A partir de R$ 40,90</p>
+        <button onclick="openModal('Doce_de_leite_com_morango')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    
+    
+      <div class="card">
+        <img src="./img/doce_de_leite_com_chocolate.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza de Doce de leite com Chocolate</h3>
+        <p class="pizza-description">Doce de Leite, chocolate ao leite e mussarela.</p>
+        <p class="pizza-price">A partir de R$ 40,90</p>
+        <button onclick="openModal('Doce_de_leite_com_chocolate')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    
+    
+      <div class="card">
+        <img src="img/calabresa.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza de Goiabada</h3>
+        <p class="pizza-description">Mussarela e goiabada coberta com queijo.</p>
+        <p class="pizza-price">A partir de R$ 35,90</p>
+        <button onclick="openModal('Goiabada')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    
+    
+      <div class="card">
+        <img src="img/calabresa.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza Havaiana</h3>
+        <p class="pizza-description">Mussarela, lombo e abacaxi.</p>
+        <p class="pizza-price">A partir de R$ 35,90</p>
+        <button onclick="openModal('Havaiana')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    
+    
+      <div class="card">
+        <img src="./img/morango_chocolate.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza de Morango Com Chocolate</h3>
+        <p class="pizza-description">Mussarela, morango e chocolate.</p>
+        <p class="pizza-price">A partir de R$ 40,90</p>
+        <button onclick="openModal('Morango_com_Chocolate')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    
+    
+      <div class="card">
+        <img src="./img/oreo.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza de Oreo</h3>
+        <p class="pizza-description">Mussarela, oreo, chocolate ao leite e detalhes de chocolate branco.</p>
+        <p class="pizza-price">A partir de R$ 40,90</p>
+        <button onclick="openModal('Oreo')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+
+      <div class="card">
+        <img src="img/calabresa.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza de Prestigio</h3>
+        <p class="pizza-description">Mussarela, chocolate ao leite e coco ralado.</p>
+        <p class="pizza-price">A partir de R$ 40,90</p>
+        <button onclick="openModal('Prestigio')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    
+    
+      <div class="card">
+        <img src="./img/calabresa.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza de Sonho de Valsa</h3>
+        <p class="pizza-description">Mussarela, sonho de valsa e chocolate ao leite.</p>
+        <p class="pizza-price">A partir de R$ 40,90</p>
+        <button onclick="openModal('Sonho_de_Valsa')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    
+    
+      <div class="card">
+        <img src="./img/kitkat.jpg" alt="Pizza">
+        <h3 class="pizza-title">Pizza de KitKat</h3>
+        <p class="pizza-description">Mussarela, kitkat e chocolate ao leite.</p>
+        <p class="pizza-price">A partir de R$ 40,90</p>
+        <button onclick="openModal('KitKat')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+    </div>
+    </div>
+    
+    
+    <div class="modal" id="Banana">
+      <div class="modal-content">
+        
+          
+          <img src="./img/banana.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza Banana</h2>
+          <p>Mussarela, banana com canela e açucar.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="35.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 35,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Banana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Banana')">Voltar</button>
+          
+       </div>
+       
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="modal" id="Banana_com_Chocolate">
+      <div class="modal-content">
+     
+          
+          <img src="img/da_hora.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza De Banana Com Chocolate</h2>
+          <p>Mussarela, banana e chocolate ao leite.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="44.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 44,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="40.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 40,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Banana_com_Chocolate')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Banana_com_Chocolate')">Voltar</button>
+       </div>
+        </div>
+      </div>
+    </div>
+ 
+
+    <div class="modal" id="Branca_de_Neve">
+      <div class="modal-content">
+        
+          
+          <img src="./img/branca_de_neve.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza Branca de Neve</h2>
+          <p>Mussarela, chocolate branco, granulado meio amargo e cereja.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="44.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 44,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="40.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 40,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Branca_de_Neve')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Branca_de_Neve')">Voltar</button>
+          <br>
+       </div>
+
+        </div>
+      </div>
+    </div>
+        
+
+    <div class="modal" id="Chocolate'">
+      <div class="modal-content">
+       
+          
+          <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza de Chocolate</h2>
+          <p>Mussarela e chocolate ao leite.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="43.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 43,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="39.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 39,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Chocolate')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <button class="cancelar" onclick="closeModal('Chocolate')">Voltar</button>
+       </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="modal" id="California">
+      <div class="modal-content">
+      
+          
+          <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza California</h2>
+          <p>Mussarela, abacaxi, pêssego, figo e uva passas.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="44.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 44,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="40.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 40,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('California')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('California')">Voltar</button>
+          <br>
+       </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="modal" id="Confete">
+      <div class="modal-content">
+      
+          
+          <img src="./img/confete.jpg" alt="" class="modal-image">
+            <div class="left-column">
+          <h2>Pizza De Confete</h2>
+          <p>Mussarela, Chocolate ao leite e confete.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="44.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 44,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="40.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 40,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Confete')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+          <button class="cancelar" onclick="closeModal('Confete')">Voltar</button>
+       </div>
+      
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="modal" id="Doce_de_Leite">
+      <div class="modal-content">
+       
+          
+          <img src="./img/doce_de_leite.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza De Doce de leite</h2>
+          <p>Mussarela, doce de leite e coco ralado.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="35.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 35,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Doce_de_Leite')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Doce_de_Leite')">Voltar</button>
+          
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="modal" id="Doce_de_leite_com_morango">
+      <div class="modal-content">
+       
+          
+          <img src="img/palmito.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza de Doce de leite com Morango.</h2>
+          <p>Doce de leite, chocolate, mussarela e morango.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="44.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 44,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="40.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 40,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Doce_de_leite_com_morango')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Doce_de_leite_com_morango')">Voltar</button>
+       </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="modal" id="Doce_de_leite_com_chocolate">
+      <div class="modal-content">
+      
+          
+          <img src="./img/doce_de_leite_com_chocolate.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza de Doce com chocolate.</h2>
+          <p>Doce de leite, chocolate ao leite e mussarela.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="44.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 44,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="40.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 40,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Doce_de_leite_com_chocolate')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <button class="cancelar" onclick="closeModal('Doce_de_leite_com_chocolate')">Voltar</button>
+       </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="modal" id="Goiabada">
+      <div class="modal-content">
+      
+          
+          <img src="img/frango_especial.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza De Goiabada</h2>
+          <p>Mussarela e goiabada coberta com queijo.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="37.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 37,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="35.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 35,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Goiabada')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Goiabada')">Voltar</button>
+       </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="modal" id="Havaiana">
+      <div class="modal-content">
+       
+          
+          <img src="img/calabresa.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza Havaiana</h2>
+          <p>Mussarela, lombo e abacaxi.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="40.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Havaiana')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Havaiana')">Voltar</button>
+          <br>
+       </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="modal" id="Morango_com_Chocolate">
+      <div class="modal-content">
+       
+          
+          <img src="./img/morango_chocolate.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza de Morango com Chocolate</h2>
+          <p>Mussarela, morango e chocolate.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="44.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 44,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="40.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 40,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Morango_com_Chocolate')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Morango_com_Chocolate')">Voltar</button>
+       </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="Oreo">
+      <div class="modal-content">
+       
+          
+          <img src="./img/oreo.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza de Oreo</h2>
+          <p>Mussarela, oreo, chocolate ao leite e detalhes de chocolate branco.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="44.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 44,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="40.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 40,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Oreo')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Oreo')">Voltar</button>
+       </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="Prestigio">
+      <div class="modal-content">
+       
+          
+          <img src="./img/frango_bacon.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza De Prestigio</h2>
+          <p>Mussarela, chocolate ao leite e coco ralado.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="40.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 40,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="36.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 36,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Prestigio')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Prestigio')">Voltar</button>
+       </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="Sonho_de_Valsa">
+      <div class="modal-content">
+       
+          
+          <img src="./img/frango_bacon.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza De Sonho de Valsa.</h2>
+          <p>Mussarela, sonho de valsa e chocolate ao leite.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="44.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 44,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="40.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 40,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('Sonho_de_Valsa')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('Sonho_de_Valsa')">Voltar</button>
+       </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="KitKat">
+      <div class="modal-content">
+       
+          
+          <img src="./img/kitkat.jpg" alt="" class="modal-image">
+          <div class="left-column">
+          <h2>Pizza de KitKat</h2>
+          <p>Mussarela, kitkat e chocolate ao leite.</p><br>
+          <h4>Tamanhos:</h4><br>
+          <div class="sizes">
+            <input type="radio"   class="grande-media" id="grande" name="tamanho" value="44.90">
+            <label for="grande" class="grande-media">GRANDE = R$ 44,90</label><br><br>
+            <input type="radio"  class="grande-media" id="media" name="tamanho" value="40.90">
+            <label for="media" class="grande-media">MÉDIA = R$ 40,90</label><br>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="adicionais_pizza">
+          <h4>Adicionais:</h4>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="queijo">Mussarela</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="tomate">Bacon</label>
+            <span class="price">+ R$ 10,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="cebola">Calabresa</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="10.00">
+            <label for="azeitona">Frango</label>
+            <span class="price">+ R$ 10.00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Milho</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Ervilha</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Cebola</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Tomate</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <p>
+            <input type="checkbox" name="adicionais" value="3.0">
+            <label for="azeitona">Azeitona</label>
+            <span class="price">+ R$ 3,00</span>
+          </p>
+          <button class="add_to_cart" onclick=" addToCart('KitKat')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+         </div>
+         <div class="bordas_pizza">
+         <h4>Bordas:</h4>
+         
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="queijo">Catupiry</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="5.0">
+           <label for="tomate">Cheddar</label>
+           <span class="price">+ R$ 5,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="8.00">
+           <label for="cebola">Chocolate</label>
+           <span class="price">+ R$ 8,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Calabresa</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Frango</label>
+           <span class="price">+ R$ 10,00</span>
+         </p>
+         <p>
+           <input type="checkbox" name="bordas" value="10.00">
+           <label for="azeitona">Mussarela</label>
+           <span class="price">+ R$ 10,00</span>
+         </p><br><br><br>
+         <button class="cancelar" onclick="closeModal('KitKat')">Voltar</button>
+       </div>
+        </div>
+      </div>
+    </div>
+
+
+<!--AQUI TERMINA O CÓDIGO DAS PIZZAS DOCES E COMEÇA DO HAMBUERGUER ARTESANAL-->
+
+
+
+
+
+<div class="modal" id="DF_Burguer">
+  <div class="modal-content">
+   
+      
+      <img src="./imagensB/df.jpg" alt="Imagem do Hambúrguer" class="modal-image">>
+      <div class="left-column">
+      <h2  class="nome-hamburguer">DF Burguer</h2><br>
+      <p>1 Carne de Hambúrguer de 80gm, 1 fatia de mussarela ou cheddar e molho da casa.</p><br>
+      <div class="sizes_burguer">
+        <input type="radio"   class="grande-media" id="grande" name="tamanho" value="11.90">
+        <label for="grande" class="grande-media">Valor = R$ 11,90</label><br><br>
+      </div>
+    </div>
+    
+    <div class="right-column_burguer">
+      <h4>Mussarela ou Cheddar</h4>
+      <input type="radio" class="queijo-checkbox" id="mussarela" name="queijo" value="Mussarela">
+      <label for="mussarela">Mussarela</label>
+
+      <input type="radio" class="queijo-checkbox" id="cheddar" name="queijo" value="Cheddar">
+      <label for="cheddar">Cheddar</label>
+
+      <div class="adicionais_burguerr">
+      <h4>Adicionais:</h4>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="7.0"  data-price="7.0">
+        <label for="Carne_de_hamburguer_80gm">Carne de Hambúrguer de 80gm</label>
+        <span class="price">+ R$ 7,00</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="9.0"  data-price="7.0">
+        <label for="Carne_de_hamburguer_150gm">Carne de Hambúrguer 150gm</label>
+        <span class="price">+ R$ 9,00</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="4.90"  data-price="7.0">
+        <label for="Bacon_duas_fatias">Bacon 2 Fatias</label>
+        <span class="price">+ R$ 4.90</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="2.50" data-price="7.0">
+        <label for="Fatia_queijo">Fatia de queijo</label>
+        <span class="price">+ R$ 2.50</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="2.0" data-price="7.0">
+        <label for="Cebola">Cebola</label>
+        <span class="price">+ R$ 2,00</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="2.0" data-price="7.0">
+        <label for="Tomate">Tomate</label>
+        <span class="price">+ R$ 2,00</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="2.0" data-price="7.0">
+        <label for="Alface">Alface</label>
+        <span class="price">+ R$ 2,00</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="2.0" data-price="7.0">
+        <label for="Molho">Molho</label>
+        <span class="price">+ R$ 2,00</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="2.0" data-price="7.0">
+        <label for="Ovo">Ovo</label>
+        <span class="price">+ R$ 2,00</span>
+      </p>
+    </div>
+    <button class="add_to_cart" onclick="addToCartBurguer('DF_Burguer')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
+
+    
+     <button class="cancelar" onclick="closeModal('DF_Burguer')">Voltar</button>
+   </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal" id="Burguer_da_Hora">
+  <div class="modal-content">
+   
+      
+      <img src="./imagensB/df.jpg" alt="Imagem do Hambúrguer" class="modal-image">
+      <div class="left-column">
+      <h2  class="nome-hamburguer">Burguer Da Hora</h2><br>
+      <p>1 Carne de Hambúrguer de 80gm, 1 fatia de mussarela ou cheddar, alface, tomate e molho da casa.</p><br>
+      <div class="sizes_burguer">
+        <input type="radio"   class="grande-media" id="grande" name="tamanho" value="14.90">
+        <label for="grande" class="grande-media">Valor = R$ 14,90</label><br><br>
+      </div>
+    </div>
+    
+    <div class="right-column_burguer">
+      <h4>Mussarela ou Cheddar</h4>
+      <input type="radio" class="queijo-checkbox" id="mussarela" name="queijo" value="Mussarela">
+      <label for="mussarela">Mussarela</label>
+
+      <input type="radio" class="queijo-checkbox" id="cheddar" name="queijo" value="Cheddar">
+      <label for="cheddar">Cheddar</label>
+
+      <div class="adicionais_burguer">
+      <h4>Adicionais:</h4>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="7.0" data-price="7.0">
+        <label for="Carne_de_hamburguer_80gm">Carne de Hambúrguer de 80gm</label>
+        <span class="price">+ R$ 7,00</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="9.0" data-price="7.0">
+        <label for="Carne_de_hamburguer_150gm">Carne de Hambúrguer 150gm</label>
+        <span class="price">+ R$ 9,00</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="4.90" data-price="7.0">
+        <label for="Bacon_duas_fatias">Bacon 2 Fatias</label>
+        <span class="price">+ R$ 4.90</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="2.50" data-price="7.0">
+        <label for="Fatia_queijo">Fatia de queijo</label>
+        <span class="price">+ R$ 2.50</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="2.0" data-price="7.0">
+        <label for="Cebola">Cebola</label>
+        <span class="price">+ R$ 2,00</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="2.0" data-price="7.0">
+        <label for="Tomate">Tomate</label>
+        <span class="price">+ R$ 2,00</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="2.0" data-price="7.0">
+        <label for="Alface">Alface</label>
+        <span class="price">+ R$ 2,00</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="2.0" data-price="7.0">
+        <label for="Molho">Molho</label>
+        <span class="price">+ R$ 2,00</span>
+      </p>
+      <p>
+        <input type="checkbox" name="adicionais_burguer" value="2.0" data-price="7.0">
+        <label for="Ovo">Ovo</label>
+        <span class="price">+ R$ 2,00</span>
+      </p>
+    </div>
+    <button class="add_to_cart" onclick="addToCartBurguer('Burguer_da_Hora')">Adicionar ao carrinho:  <span id="precoTotal">R$ 0.00</span></button>
 
 
     
+     <button class="cancelar" onclick="closeModal('Burguer_da_Hora')">Voltar</button>
+   </div>
+    </div>
+  </div>
+</div>
 
 
+
+
+
+
+
+    <div class="div_div" id="hambúrguerArtesanal">
+      <h2>Hambúrguer Artesanal</h2>
+     </div>
+    
+    
+    
+    
+    
+    
+    <div class="card-container">
+    
+    
+    
+        <div class="card">
+          <img src="./imagensB/df.jpg" alt="Pizza">
+          <h3 class="pizza-title">DF Burguer</h3>
+          <p class="pizza-description">1 Carne de hambúrguer de 80gm, 1 fatia de mussarela ou cheddar e molho da casa.</p>
+          <p class="pizza-price">A partir de R$ 11,90</p>
+          <button onclick="openModal('DF_Burguer')" class="fazer-pedido">Fazer pedido</button>
+        </div>
+    
+    
+        <div class="card">
+          <img src="./imagensB/hambúrguer.jpg" alt="Pizza">
+          <h3 class="pizza-title">Burguer Da Hora</h3>
+          <p class="pizza-description">1 Carne de hambúrguer de 80gm, 1 fatia de mussarela ou cheddar e molho da casa.</p>
+          <p class="pizza-price">A partir de R$ 14,90</p>
+          <button onclick="openModal('Burguer_da_Hora')" class="fazer-pedido">Fazer pedido</button>
+        </div>
+    
+    
+        <div class="card">
+          <img src="./imagensB/bragueto.jpg" alt="Pizza">
+          <h3 class="pizza-title">Bragueto Burguer</h3>
+          <p class="pizza-description">2 Carnes de hambúrguer de 80gm, 2 fatias de mussarela ou cheddar, bacon, cebola, alface, tomate e molho da casa.</p>
+          <p class="pizza-price">A partir de R$ 19,90</p>
+          <button onclick="openModal('Bragueto_Burguer')" class="fazer-pedido">Fazer pedido</button>
+        </div>
+        <div class="card">
+          <img src="./imagensB/torre.jpg" alt="Pizza">
+          <h3 class="pizza-title">Torre Burguer</h3>
+          <p class="pizza-description">3 Carnes de hambúrguer de 80gm, 3 fatias de mussarela ou cheddar, bacon, cebola, alface, tomate e molho da casa.</p>
+          <p class="pizza-price">A partir de R$ 24,90</p>
+          <button onclick="openModal('Torre_Burguer')" class="fazer-pedido">Fazer pedido</button>
+        </div>
+    
+    
+        <div class="card">
+          <img src="./imagensB/frangobuerguer.jpg" alt="Pizza">
+          <h3 class="pizza-title">Especial de Frango</h3>
+          <p class="pizza-description">2 File de frango, 2 fatias de mussarela ou cheddar, molho 4 queijo, cebola, alface, tomate e molho da casa.</p>
+          <p class="pizza-price">A partir de R$ 15,90</p>
+          <button onclick="openModal('Especial_de_Frango')" class="fazer-pedido">Fazer pedido</button>
+        </div>
+    
+    
+        <div class="card">
+          <img src="./imagensB/jk.jpg" alt="Pizza">
+          <h3 class="pizza-title">JK Burguer</h3>
+          <p class="pizza-description">1 Carne de hambúrguer de 150gm, 1 fatia de mussarela ou cheddar, cebola, alface tomate e molho da casa.</p>
+          <p class="pizza-price">A partir de R$ 16,90</p>
+          <button onclick="openModal('JK_Burguer')" class="fazer-pedido">Fazer pedido</button>
+        </div>
+    
+        <div class="card">
+          <img src="./imagensB/pontao.jpg" alt="Pizza">
+          <h3 class="pizza-title">Pontão Burguer</h3>
+          <p class="pizza-description">1 Carne de hambúrguer de 150gm, 2 fatias de mussarela ou cheddar, bacon e molho da casa.</p>
+          <p class="pizza-price">A partir de R$ 19,90</p>
+          <button onclick="openModal('Pontão_Burguer')" class="fazer-pedido">Fazer pedido</button>
+        </div>
+    
+    
+        <div class="card">
+          <img src="./imagensB/mega.jpg" alt="Pizza">
+          <h3 class="pizza-title">Mega da Hora</h3>
+          <p class="pizza-description">2 Carnes de hambúrguer de 150gm, 2 fatias de mussarela, cheddar ou prato, 2 bacon, cebola, alface, tomate e molho da casa.</p>
+          <p class="pizza-price">A partir de R$ 29,90</p>
+          <button onclick="openModal('Mega_Da_Hora')" class="fazer-pedido">Fazer pedido</button>
+        </div>
+    
+     </div>
 
 
 
   
+
+
+
+     <div class="div_div" id="hambúrguer">
+      <h2>Hambúrguer</h2>
+     </div>
+     <div class="card-container">
+
+      <div class="card">
+        <img src="./imagensB/hambúrguer.jpg" alt="Pizza">
+        <h3 class="pizza-title">X Salada</h3>
+        <p class="pizza-description">Hambúrguer, queijo, tomate de alface.</p>
+        <p class="pizza-price">A partir de R$ 8,00</p>
+        <button onclick="openModal('X_Salada')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+  
+  
+      <div class="card">
+        <img src="./imagensB/hambúrguer.jpg" alt="Pizza">
+        <h3 class="pizza-title">X Bacon</h3>
+        <p class="pizza-description">Hambúrguer, queijo, bacon, tomate de alface.</p>
+        <p class="pizza-price">A partir de R$ 16,90</p>
+        <button onclick="openModal('X_Bacon')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+  
+      <div class="card">
+        <img src="./imagensB/hambúrguer.jpg" alt="Pizza">
+        <h3 class="pizza-title">X Egg</h3>
+        <p class="pizza-description">Hambúrguer, queijo, ovo, tomate e alface.</p>
+        <p class="pizza-price">A partir de R$ 19,90</p>
+        <button onclick="openModal('X_Egg')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+  
+  
+      <div class="card">
+        <img src="./imagensB/x_tudo.jpg" alt="Pizza">
+        <h3 class="pizza-title">X Tudo</h3>
+        <p class="pizza-description">Hambúrguer, queijo, presunto, ovo, bacon, milho, tomate, alface e batata palha.</p>
+        <p class="pizza-price">A partir de R$ 29,90</p>
+        <button onclick="openModal('X_Tudo')" class="fazer-pedido">Fazer pedido</button>
+      </div>
+
+     </div>
   
   <footer>
     <p>&copy; 2023 Pizzaria. Todos os direitos reservados.</p>
