@@ -21,21 +21,68 @@ body {
 
 .menu_sobre_nos {
  text-align: left;
+}
+
+.shopping{
+  display: flex;
+  animation: bounce 0.6s;
+  animation-fill-mode: forwards;
+  margin-right: 5%;
+
+  cursor: pointer;
+  position: fixed;
+  top:4%;
+  right:0%;
 
 
 }
+
 .fundo {
   background:rgb(233, 233, 232) url(img/fundo3.png) no-repeat;
   padding:10px ;
-  min-height: 30vh;
+  height: 30vh;
   display: flex;
   align-items: center;
   border: 1px solid red;
   border-radius: 5px;
-  width: 100vw;
+  width: 100%;
  }
 
+/* Estilos para dispositivos móveis (telas menores ou iguais a 767px) */
+@media screen and (max-width: 767px) {
+  .fundo {
+    text-align: center; /* Centralizar o conteúdo no meio da tela */
+    position: relative; /* Define a posição relativa para o container "fundo" */
+    background: rgb(233, 233, 232) url(img/fundo3.png) no-repeat;
+    padding: 10px;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+    border-radius: 5px;
+    width: 100%;
+  }
 
+  .img {
+    width: 80px; /* Reduzir o tamanho da imagem */
+    height: 80px;
+    margin-bottom: 10px;
+  }
+
+  .marca {
+    padding: 10px;
+    font-family: verdana, Arial, Helvetica, sans-serif;
+    color: #fff;
+    font-size: 24px; /* Tamanho maior para o título da marca */
+  }
+
+  .menu-openner {
+    font-size: 32px; /* Tamanho maior para o ícone do carrinho */
+    cursor: pointer;
+  }
+
+
+}
  .modal_dois_sabores_card{
   background-color: #ffffff;
   width: 100%;
@@ -82,21 +129,20 @@ body {
 
 /* Classe CSS para estilizar o número do carrinho */
 .quantity {
-  position: fixed;
-  top: 8px;
-  left: 94%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
+
+  text-align: center;
+
   background-color: #ff0000;
   color: #ffffff;
-  font-size: 14px;
   font-weight: bold;
   border-radius: 50%;
   animation: bounce 0.6s;
   animation-fill-mode: forwards;
+  font-size: 20px;
+  right: 55%;
+  position: fixed;
+  width: 20%;
+  
    
 }
 
@@ -139,8 +185,6 @@ body {
   align-items: center;
 }
 .card_carrinho_compras .checkOut{
- 
- 
   bottom: 0;
   width: 100%;
   display: grid;
@@ -193,26 +237,22 @@ body {
 .listCard .count{
   margin: 0 10px;
 }
-.menu-openner {
-margin-right: 15px;
-font-size: 26px;
-background-color:transparent;
-padding: 5px 20px;
-border-radius: 5px;
-cursor: pointer;
-position: fixed;
-top:0;
-right:0;
-height:50px;
-display:flex; /* none; */
-justify-content:space-between; /* flex-end; */
-align-items: center;
-}
+
 .observacoes {
  
   margin: 9px ;
   color: white;
  }
+ .menu-openner {
+  margin-right: 1%;
+  font-size: 28px;
+  background-color:transparent;
+  padding: 5px 20px;
+  cursor: pointer;
+  top:4%;
+  right:0;
+ }
+
 
 
 
@@ -334,11 +374,10 @@ align-items: center;
 
 .menu {
   background: rgb(242, 242, 242);
-  border: 1px solid red;
   padding: 18px;
   display: flex;
   width: 100%;
-  gap: 10px;
+  gap: 7px;
  
 }
 .menu a {
@@ -354,23 +393,7 @@ align-items: center;
   border-radius: 10px;
 }
 
-.menu-openner {
-  margin-right: 15px;
-  font-size: 26px;
-  background-color:transparent;
-  padding: 5px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  position: fixed;
-  top:0;
-  right:0;
-  height:50px;
-  display:flex; /* none; */
-  justify-content:space-between; /* flex-end; */
-  align-items: center;
- 
-  
-}
+
 .menu-openner span {
   margin-right:10px;
   margin-top: 6px;
@@ -422,7 +445,7 @@ a {
 .card {
   border-radius: 8px;
   margin: 5px; 
-  max-width: 200px;
+  width:15% ;
   max-height: 400px;
   padding: 10px;
   border-radius: 5px;
@@ -436,38 +459,18 @@ a {
   .card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .card {
-    width: 90%; /* O card ocupará 90% da largura da tela */
-    max-width: 300px; /* Defina uma largura máxima para o card (opcional) */
+    flex-basis: calc(40% - 3px); /* Cada card ocupará 50% da largura da tela com 20px de espaçamento entre eles */
     margin: 10px; /* Espaçamento entre os cards (opcional) */
     font-size: 16px; /* Tamanho de fonte base do card */
   }
 
-  .card img {
-    width: 100%; /* A imagem ocupará 100% da largura do card */
-    height: 50px; /* A altura da imagem se ajustará automaticamente */
-  
-  }
-
-  .card h3 {
-    font-size: 1.5em; /* Tamanho da fonte do título */
-  }
-
-  .card p {
-    font-size: 1em; /* Tamanho da fonte do parágrafo */
-  }
-
-  .card .pizza-price {
-    font-size: 1.2em; /* Tamanho da fonte do preço */
-  }
-
-  .card button {
-    font-size: 1em; /* Tamanho da fonte do botão */
-  }
+  /* Restante do código permanece o mesmo */
 }
+
 
 .card img {
   width: 100%;
