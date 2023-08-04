@@ -317,7 +317,7 @@ function adicionarSaboresAoCarrinho() {
 function adicionarSaboresAoCarrinhoMedia() {
   const checkboxesSabores = document.querySelectorAll(".sabor-checkbox-media:checked");
   const checkboxesAdicionais = document.querySelectorAll(".adicionais_pizza_dois_sabores_media input[type='checkbox']:checked");
-  const checkboxesBordas = document.querySelectorAll(".bordas_pizza_dois_sabores_media input[type='radio']:checked");
+  const checkboxesBordas = document.querySelectorAll(".bordas_pizza_dois_sabores_media input[type='checkbox']:checked");
 
   // Verificar se exatamente dois sabores foram selecionados
   if (checkboxesSabores.length !== 2) {
@@ -519,3 +519,70 @@ function search() {
   });
 }
 
+
+
+
+
+
+
+
+
+function abrirDetalhesPedidoModal() {
+  const modal = document.getElementById("detalhesPedidoModal");
+  const detalhesPedido = formatarDetalhesPedido();
+
+  const detalhesPedidoTexto = document.getElementById("detalhesPedidoTexto");
+  detalhesPedidoTexto.textContent = detalhesPedido;
+
+  modal.style.display = "block";
+}
+
+
+// Função para finalizar o pedido (pode ser implementada conforme suas necessidades)
+function finalizarPedido() {
+  alert("Pedido finalizado! Opção de entrega selecionada: " + document.querySelector('input[name="opcaoEntrega"]:checked').value);
+}
+
+// ... (outras funções) ...
+
+
+function formatarDetalhesPedido() {
+  let detalhes = "";
+
+  // Verifica se o carrinho está vazio
+  if (cart.length === 0) {
+    detalhes = "O carrinho está vazio.";
+  } else {
+    // Itera sobre os itens do carrinho e formata as informações
+    cart.forEach((item, index) => {
+      detalhes += `${index + 1}. ${item.nome} - ${item.tamanho}\n`;
+
+      if (item.borda !== "Sem borda") {
+        detalhes += `   Borda: ${item.borda}\n`;
+      }
+
+      if (item.adicionais.length > 0) {
+        detalhes += `   Adicionais: ${item.adicionais.join(", ")}\n`;
+      }
+
+      detalhes += `   Preço: R$ ${item.precoTotal}\n\n`;
+    });
+  }
+
+  return detalhes;
+}
+
+
+
+function finalizarPedido() {
+  // Obtenha as informações do pedido e do cliente
+  const detalhesPedido = "Detalhes do Pedido:\n" + obterDetalhesDoPedido();
+  const opcaoEntrega = document.querySelector('input[name="opcaoEntrega"]:checked').value;
+
+  // Formate o link do WhatsApp com as informações do pedido
+  const mensagemWhatsApp = encodeURIComponent(detalhesPedido + "\n\nOpção de Entrega: " + opcaoEntrega);
+  const linkWhatsApp = `https://wa.me/SEUNUMERODOTELEFONE?text=${mensagemWhatsApp}`;
+
+  // Redirecione para o WhatsApp
+  window.location.href = linkWhatsApp;
+}
