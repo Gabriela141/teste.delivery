@@ -926,6 +926,10 @@ a {
   cursor: pointer;
 }
 
+#inputEndereco {
+  display: none;
+}
+
 
 
 

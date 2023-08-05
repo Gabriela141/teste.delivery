@@ -526,7 +526,6 @@ function search() {
 
 
 
-
 function abrirDetalhesPedidoModal() {
   const modal = document.getElementById("detalhesPedidoModal");
   const detalhesPedido = formatarDetalhesPedido();
@@ -534,16 +533,59 @@ function abrirDetalhesPedidoModal() {
   const detalhesPedidoTexto = document.getElementById("detalhesPedidoTexto");
   detalhesPedidoTexto.textContent = detalhesPedido;
 
+  // Preencher as observações no modal
+  const observacoes = document.getElementById("observacoes").value;
+  const detalhesObservacoes = document.querySelector(".detalhes-observacoes");
+  detalhesObservacoes.textContent = `Observações: ${observacoes}`;
+
+  // Calcular e exibir o valor total
+  const valorTotal = calcularValorTotal();
+  const valorTotalSpan = document.getElementById("valorTotalSpan");
+  valorTotalSpan.textContent = valorTotal.toFixed(2);
+
   modal.style.display = "block";
 }
 
+const opcaoEntrega = document.getElementsByName("opcaoEntrega");
+const inputEndereco = document.getElementById("inputEndereco");
 
-// Função para finalizar o pedido (pode ser implementada conforme suas necessidades)
-function finalizarPedido() {
-  alert("Pedido finalizado! Opção de entrega selecionada: " + document.querySelector('input[name="opcaoEntrega"]:checked').value);
+opcaoEntrega.forEach(radio => {
+  radio.addEventListener("change", function() {
+    if (this.value === "5.0") {
+      inputEndereco.style.display = "block";
+    } else {
+      inputEndereco.style.display = "none";
+    }
+    calcularValorTotal();
+  });
+});
+
+function calcularValorTotal() {
+  let total = 0;
+  cart.forEach(item => {
+    total += parseFloat(item.precoTotal);
+  });
+
+  const opcaoEntregaSelecionada = document.querySelector('input[name="opcaoEntrega"]:checked');
+  const valorEntrega = opcaoEntregaSelecionada ? parseFloat(opcaoEntregaSelecionada.value) : 0;
+  total += valorEntrega;
+
+  const valorTotalSpan = document.getElementById("valorTotalSpan");
+  valorTotalSpan.textContent = total.toFixed(2);
+
+  return total;
 }
 
-// ... (outras funções) ...
+
+
+
+function fecharDetalhesPedidoModal() {
+  const modal = document.getElementById("detalhesPedidoModal");
+  modal.style.display = "none";
+}
+
+
+
 
 
 function formatarDetalhesPedido() {
@@ -565,6 +607,10 @@ function formatarDetalhesPedido() {
         detalhes += `   Adicionais: ${item.adicionais.join(", ")}\n`;
       }
 
+      if (item.observacoes) {
+        detalhes += `   Observações: ${item.observacoes}\n`;
+      }
+
       detalhes += `   Preço: R$ ${item.precoTotal}\n\n`;
     });
   }
@@ -574,15 +620,3 @@ function formatarDetalhesPedido() {
 
 
 
-function finalizarPedido() {
-  // Obtenha as informações do pedido e do cliente
-  const detalhesPedido = "Detalhes do Pedido:\n" + obterDetalhesDoPedido();
-  const opcaoEntrega = document.querySelector('input[name="opcaoEntrega"]:checked').value;
-
-  // Formate o link do WhatsApp com as informações do pedido
-  const mensagemWhatsApp = encodeURIComponent(detalhesPedido + "\n\nOpção de Entrega: " + opcaoEntrega);
-  const linkWhatsApp = `https://wa.me/SEUNUMERODOTELEFONE?text=${mensagemWhatsApp}`;
-
-  // Redirecione para o WhatsApp
-  window.location.href = linkWhatsApp;
-}
