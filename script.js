@@ -620,3 +620,23 @@ function formatarDetalhesPedido() {
 
 
 
+
+function enviarPedidoWhatsapp() {
+  const detalhesPedido = formatarDetalhesPedido();
+  const valorTotal = calcularValorTotal(); // Certifique-se de ter uma função que calcule o valor total
+  
+  const opcaoEntrega = document.querySelector('input[name="opcaoEntrega"]:checked');
+  const endereco = opcaoEntrega && opcaoEntrega.value === "5.0" ? document.getElementById("inputEndereco").value : "Retirada na loja";
+  
+  const mensagem = encodeURIComponent(`Detalhes do Pedido:\n${detalhesPedido}\nOpção de Entrega: ${endereco}\nValor Total: R$ ${valorTotal.toFixed(2)}`);
+  const numeroWhatsApp = "+5561992241615"; // Substitua pelo número de WhatsApp do destinatário
+  
+  // Criar o link para o WhatsApp
+  const linkWhatsapp = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+  
+  // Abrir o link
+  window.open(linkWhatsapp);
+}
+
+
+
