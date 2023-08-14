@@ -162,6 +162,8 @@ function addToCart(sabor) {
 
   // Atualizar o contador do carrinho
   updateCartCounter();
+
+  closeModal(sabor);
 }
 
 
@@ -488,6 +490,8 @@ function addToCartBurguer(sabor) {
 
   // Atualizar o contador do carrinho geral
   updateCartCounter();
+  
+  closeModal(sabor);
 }
 
 
@@ -637,6 +641,17 @@ function enviarPedidoWhatsapp() {
   // Abrir o link
   window.open(linkWhatsapp);
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -65,7 +65,8 @@
 
       <!-- Modal -->
       <div class="abrir_modal" id="detalhesPedidoModal">
-        <div class="modal-content">
+        <div class="modal-contentt">
+          <button class="close-button" onclick="fecharDetalhesPedidoModal()"><i class="fas fa-times"></i></button>
           <h2>Detalhes do Pedido</h2>
           <pre id="detalhesPedidoTexto"></pre>
           <div class="detalhes-observacoes">
@@ -73,14 +74,13 @@
           </div>
           <label>
             <input type="radio" name="opcaoEntrega" value="5.0" onclick="calcularValorTotal()"> Entrega <span>R$ 5,0</span>
-            <input type="text" id="inputEndereco" placeholder="Digite seu endereço" style="display: none;">
+            <input type="text" id="inputEndereco" placeholder="Digite seu endereço..." style="display: none;">
           </label>
           <label>
             <input type="radio" name="opcaoEntrega" value="0" onclick="calcularValorTotal()"> Retirar na loja
           </label>
           <p>Valor total:<span id="valorTotalSpan">0</span></p>
-          <button class="close-button" onclick="fecharDetalhesPedidoModal()">Fechar</button>
-          <button onclick="enviarPedidoWhatsapp()">Enviar Pedido pelo WhatsApp</button>
+          <button  class="whatsApp_pedido_enviar"    onclick="enviarPedidoWhatsapp()">Enviar Pedido pelo WhatsApp</button>
         </div>
       </div>
       
